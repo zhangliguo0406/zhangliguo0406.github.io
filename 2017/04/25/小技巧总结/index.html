@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="小技巧总结子元素在父元素内两端对齐1234567891011121314151617181920212223&amp;lt;style&amp;gt;ul&amp;#123;	text-align: justify;    text-justify:distribute-all-lines;    -ms-text-justify: distribute-all-lines;&amp;#125;ul:after&amp;#123;	wi">
+<meta name="keywords">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2017/04/25/小技巧总结/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="小技巧总结子元素在父元素内两端对齐1234567891011121314151617181920212223&amp;lt;style&amp;gt;ul&amp;#123;	text-align: justify;    text-justify:distribute-all-lines;    -ms-text-justify: distribute-all-lines;&amp;#125;ul:after&amp;#123;	wi">
+<meta property="og:updated_time" content="2017-04-05T03:14:17.827Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="小技巧总结子元素在父元素内两端对齐1234567891011121314151617181920212223&amp;lt;style&amp;gt;ul&amp;#123;	text-align: justify;    text-justify:distribute-all-lines;    -ms-text-justify: distribute-all-lines;&amp;#125;ul:after&amp;#123;	wi">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-小技巧总结" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/04/25/小技巧总结/" class="article-date">
+  <time datetime="2017-04-25T11:00:29.292Z" itemprop="datePublished">2017-04-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="小技巧总结"><a href="#小技巧总结" class="headerlink" title="小技巧总结"></a>小技巧总结</h1><h2 id="子元素在父元素内两端对齐"><a href="#子元素在父元素内两端对齐" class="headerlink" title="子元素在父元素内两端对齐"></a>子元素在父元素内两端对齐</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">&lt;style&gt;</div><div class="line">ul&#123;</div><div class="line">	text-align: justify;</div><div class="line">    text-justify:distribute-all-lines;</div><div class="line">    -ms-text-justify: distribute-all-lines;</div><div class="line">&#125;</div><div class="line">ul:after&#123;</div><div class="line">	width: 100%;</div><div class="line">	height: 0;</div><div class="line">	margin: 0;</div><div class="line">	display: inline-block;</div><div class="line">	overflow: hidden;</div><div class="line">	content: &apos;&apos;;</div><div class="line">&#125;</div><div class="line">li&#123;</div><div class="line">display:inline-block;</div><div class="line">&#125;</div><div class="line">&lt;/style&gt;</div><div class="line">&lt;ul&gt;</div><div class="line">	&lt;li&gt;&lt;/li&gt;</div><div class="line">	&lt;li&gt;&lt;/li&gt;</div><div class="line">	&lt;li&gt;&lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div></pre></td></tr></table></figure>
+<h2 id="进制选中元素内容"><a href="#进制选中元素内容" class="headerlink" title="进制选中元素内容"></a>进制选中元素内容</h2><p>none：<br>文本不能被选择<br>text：<br>可以选择文本 默认值<br>all：<br>当所有内容作为一个整体时可以被选择。如果双击或者在上下文上点击子元素，那么被选择的部分将是以该子元素向上回溯的最高祖先元素。<br>element：<br>可以选择文本，但选择范围受元素边界的约束</p>
+<blockquote>
+<p>IE6-9不支持该属性，但支持使用标签属性 onselectstart=”return false;” 来达到 user-select:none 的效果；Safari和Chrome也支持该标签属性；<br>直到Opera12.5仍然不支持该属性，但和IE6-9一样，也支持使用私有的标签属性 unselectable=”on” 来达到 user-select:none 的效果；unselectable 的另一个值是 off；<br>除Chrome和Safari外，在其它浏览器中，如果将文本设置为 -ms-user-select:none;，则用户将无法在该文本块中开始选择文本。不过，如果用户在页面的其他区域开始选择文本，则用户仍然可以继续选择将文本设置为 -ms-user-select:none; 的区域文本；</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&lt;style&gt;</div><div class="line">.test&#123;</div><div class="line">	-webkit-user-select: none;</div><div class="line">    -moz-user-select: none;</div><div class="line">    -ms-user-select: none;</div><div class="line">    user-select: none;</div><div class="line">	background:#eee;</div><div class="line">&#125;</div><div class="line">&lt;/style&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">&lt;div class=&quot;test&quot; onselectstart=&quot;return false;&quot; unselectable=&quot;on&quot;&gt;</div><div class="line">选择我试试，你会发现怎么也选择不到我，哈哈哈哈</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<h2 id="如何让元素在指定父级元素内居中"><a href="#如何让元素在指定父级元素内居中" class="headerlink" title="如何让元素在指定父级元素内居中"></a>如何让元素在指定父级元素内居中</h2><h3 id="水平居中-块状元素"><a href="#水平居中-块状元素" class="headerlink" title="水平居中 块状元素"></a>水平居中 块状元素</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;style&gt;</div><div class="line">div&#123;</div><div class="line">	background:yellow;</div><div class="line">&#125;</div><div class="line">p&#123;</div><div class="line">	margin:0 auto;</div><div class="line">	width:50%;</div><div class="line">	height:100px;</div><div class="line">	background:red;</div><div class="line">&#125;</div><div class="line">&lt;/style&gt;</div><div class="line">&lt;div&gt;</div><div class="line">	&lt;p&gt;&lt;/p&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<h3 id="水平居中-行内-行内块状元素"><a href="#水平居中-行内-行内块状元素" class="headerlink" title="水平居中 行内/行内块状元素"></a>水平居中 行内/行内块状元素</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">&lt;style&gt;</div><div class="line">div&#123;</div><div class="line">	background:yellow;</div><div class="line">	text-align:center;</div><div class="line">&#125;</div><div class="line">p&#123;</div><div class="line">	display:inline-block;</div><div class="line">	padding: 0 10%;</div><div class="line">	width:20%;</div><div class="line">	height:100px;</div><div class="line">	background:red;</div><div class="line">&#125;</div><div class="line">&lt;/style&gt;</div><div class="line">&lt;div&gt;</div><div class="line">	&lt;p&gt;&lt;/p&gt;</div><div class="line">	&lt;p&gt;&lt;/p&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<h3 id="水平居中"><a href="#水平居中" class="headerlink" title="水平居中"></a>水平居中</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line">&lt;style type=&quot;text/css&quot;&gt;</div><div class="line">    /*主要用到position:relative配合left:50%的技巧，兼容各浏览器，需要注意的是IE7下需要设置overflow:hidden;*/</div><div class="line">    /*来解决无法设置子元素宽度的BUG。*/</div><div class="line">    * &#123;</div><div class="line">        margin: 0;</div><div class="line">        padding: 0;</div><div class="line">        list-style: none;</div><div class="line">        font-size: 14px;</div><div class="line">        font-family: Tahoma, Geneva, sans-serif;</div><div class="line">    &#125;</div><div class="line">    /** relative left 50% */</div><div class="line">    .page &#123;</div><div class="line">        float: left;</div><div class="line">        position: relative;</div><div class="line">        left: 50%;</div><div class="line">    &#125;</div><div class="line">    /** relative right 50% */</div><div class="line">    .page li &#123;</div><div class="line">        float: left;</div><div class="line">        position: relative;</div><div class="line">        right: 50%;</div><div class="line">        overflow: hidden;</div><div class="line">        margin: 0 5px;</div><div class="line">    &#125;</div><div class="line">&lt;/style&gt;</div><div class="line"></div><div class="line">&lt;ul class=&quot;page&quot;&gt;</div><div class="line">    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;上一页&lt;/a&gt;&lt;/li&gt;</div><div class="line">    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;1&lt;/a&gt;&lt;/li&gt;</div><div class="line">    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;2&lt;/a&gt;&lt;/li&gt;</div><div class="line">    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;3&lt;/a&gt;&lt;/li&gt;</div><div class="line">    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;4&lt;/a&gt;&lt;/li&gt;</div><div class="line">    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;2&lt;/a&gt;&lt;/li&gt;</div><div class="line">    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;3&lt;/a&gt;&lt;/li&gt;</div><div class="line">    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;2&lt;/a&gt;&lt;/li&gt;</div><div class="line">    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;3&lt;/a&gt;&lt;/li&gt;</div><div class="line">    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;4&lt;/a&gt;&lt;/li&gt;</div><div class="line">    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;5&lt;/a&gt;&lt;/li&gt;</div><div class="line">    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;6&lt;/a&gt;&lt;/li&gt;</div><div class="line">    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;下一页&lt;/a&gt;&lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div></pre></td></tr></table></figure>
+<h3 id="水平居中-margin"><a href="#水平居中-margin" class="headerlink" title="水平居中 margin"></a>水平居中 margin</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line">&lt;style type=&quot;text/css&quot;&gt;</div><div class="line">        /*这里也可以多套一层的方式设置left:-50%，更合理，也可以避免一些不必要的IE BUG。*/</div><div class="line">        /*这种float元素居中的方式其实可以延展应用到很多需要浮动元素又居中的情况。*/</div><div class="line">        * &#123;</div><div class="line">            margin: 0;</div><div class="line">            padding: 0;</div><div class="line">            list-style: none;</div><div class="line">        &#125;</div><div class="line">        /*父级元素向左浮动50%*/</div><div class="line">        .inwrap &#123;</div><div class="line">            float: left;</div><div class="line">            position: relative;</div><div class="line">            left: 50%;</div><div class="line">        &#125;</div><div class="line">        /*父级元素向左浮动-50%*/</div><div class="line">        .page &#123;</div><div class="line">            float: left;</div><div class="line">            position: relative;</div><div class="line">            left: -50%;</div><div class="line">        &#125;</div><div class="line">        .page li &#123;</div><div class="line">            float: left;</div><div class="line">            margin: 0 5px;</div><div class="line">        &#125;</div><div class="line">    &lt;/style&gt;</div><div class="line">&lt;div class=&quot;inwrap&quot;&gt;</div><div class="line">    &lt;ul class=&quot;page&quot;&gt;</div><div class="line">        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;上一页&lt;/a&gt;&lt;/li&gt;</div><div class="line">        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;1&lt;/a&gt;&lt;/li&gt;</div><div class="line">        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;2&lt;/a&gt;&lt;/li&gt;</div><div class="line">        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;3&lt;/a&gt;&lt;/li&gt;</div><div class="line">        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;4&lt;/a&gt;&lt;/li&gt;</div><div class="line">        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;2&lt;/a&gt;&lt;/li&gt;</div><div class="line">        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;3&lt;/a&gt;&lt;/li&gt;</div><div class="line">        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;2&lt;/a&gt;&lt;/li&gt;</div><div class="line">        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;3&lt;/a&gt;&lt;/li&gt;</div><div class="line">        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;4&lt;/a&gt;&lt;/li&gt;</div><div class="line">        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;5&lt;/a&gt;&lt;/li&gt;</div><div class="line">        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;6&lt;/a&gt;&lt;/li&gt;</div><div class="line">        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;下一页&lt;/a&gt;&lt;/li&gt;</div><div class="line">    &lt;/ul&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<h3 id="利用定位-让子元素中心点与父元素中心点重合"><a href="#利用定位-让子元素中心点与父元素中心点重合" class="headerlink" title="利用定位 让子元素中心点与父元素中心点重合"></a>利用定位 让子元素中心点与父元素中心点重合</h3><h4 id="第一种方法"><a href="#第一种方法" class="headerlink" title="第一种方法"></a>第一种方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">&lt;style&gt;</div><div class="line">div&#123;</div><div class="line">        position: relative;</div><div class="line">        width: 600px;</div><div class="line">        height: 600px;</div><div class="line">        background: mistyrose;</div><div class="line">    &#125;</div><div class="line">    p&#123;</div><div class="line">        position: absolute;</div><div class="line">        top:50%;</div><div class="line">        left: 50%;</div><div class="line">        margin: -150px 0 0 -150px;</div><div class="line">        width: 300px;</div><div class="line">        height: 300px;</div><div class="line">        background: red;</div><div class="line">    &#125;</div><div class="line">&lt;/style&gt;</div><div class="line">&lt;div&gt;</div><div class="line">	&lt;p&gt;&lt;/p&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<h4 id="第二种方法"><a href="#第二种方法" class="headerlink" title="第二种方法"></a>第二种方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">&lt;style&gt;</div><div class="line">    div&#123;</div><div class="line">        position: relative;</div><div class="line">        width: 600px;</div><div class="line">        height: 600px;</div><div class="line">        background: mistyrose;</div><div class="line">    &#125;</div><div class="line">    p&#123;</div><div class="line">        position: absolute;</div><div class="line">        top:0;</div><div class="line">        left: 0;</div><div class="line">        right:0;</div><div class="line">        bottom: 0;</div><div class="line">        margin: auto;</div><div class="line">        width: 300px;</div><div class="line">        height: 300px;</div><div class="line">        background: red;</div><div class="line">    &#125;</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure>
+<h4 id="第三种方法"><a href="#第三种方法" class="headerlink" title="第三种方法"></a>第三种方法</h4><p>vertical-align<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">div&#123;</div><div class="line">        width: 600px;</div><div class="line">        height: 600px;</div><div class="line">        background: mistyrose;</div><div class="line">        text-align: center;</div><div class="line">        font-size: 0;</div><div class="line">    &#125;</div><div class="line">    p&#123;</div><div class="line">        display: inline-block;</div><div class="line">        vertical-align: middle;</div><div class="line">    &#125;</div><div class="line">    .canzhaowu&#123;</div><div class="line">        height: 100%;</div><div class="line">        background: #59b07d;</div><div class="line">        width: 0;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">    .cur&#123;</div><div class="line">        height: 200px;</div><div class="line">        width: 200px;</div><div class="line">        background: green;</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+<h2 id="让页面里的字体变清晰，变细用CSS怎么做？"><a href="#让页面里的字体变清晰，变细用CSS怎么做？" class="headerlink" title="让页面里的字体变清晰，变细用CSS怎么做？"></a>让页面里的字体变清晰，变细用CSS怎么做？</h2><p>（-webkit-font-smoothing: antialiased;）</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/04/25/小技巧总结/" data-id="cj1xfzk3f00066kvckuby882a" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/04/25/动画 animation/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/04/25/第一天笔记/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/04/25/css笔记/面试/面试题：/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/25/css笔记/第七天/第七天笔记/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/25/第四天笔记/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/25/第十五天/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/25/第五天/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

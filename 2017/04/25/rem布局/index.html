@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="#rem布局布局1 固定布局  px2 百分比布局 100%（一个页面的局部）3 rem  通过计算根元素的字体大小与设计稿还有视口宽度（只在移动端使用）4 媒体查询（pc - pad - 移动端）5 弹性盒模型布局 （B课程 + 3D） 一般设计师给我们的移动端设计稿的大小是640px移动端设备屏幕宽度iphone 5 – 》 320pxfontSize=屏幕宽度/设定基数100fontSize">
+<meta name="keywords">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2017/04/25/rem布局/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="#rem布局布局1 固定布局  px2 百分比布局 100%（一个页面的局部）3 rem  通过计算根元素的字体大小与设计稿还有视口宽度（只在移动端使用）4 媒体查询（pc - pad - 移动端）5 弹性盒模型布局 （B课程 + 3D） 一般设计师给我们的移动端设计稿的大小是640px移动端设备屏幕宽度iphone 5 – 》 320pxfontSize=屏幕宽度/设定基数100fontSize">
+<meta property="og:updated_time" content="2017-04-07T01:01:32.385Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="#rem布局布局1 固定布局  px2 百分比布局 100%（一个页面的局部）3 rem  通过计算根元素的字体大小与设计稿还有视口宽度（只在移动端使用）4 媒体查询（pc - pad - 移动端）5 弹性盒模型布局 （B课程 + 3D） 一般设计师给我们的移动端设计稿的大小是640px移动端设备屏幕宽度iphone 5 – 》 320pxfontSize=屏幕宽度/设定基数100fontSize">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-rem布局" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/04/25/rem布局/" class="article-date">
+  <time datetime="2017-04-25T11:00:29.230Z" itemprop="datePublished">2017-04-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#rem布局<br>布局<br>1 固定布局  px<br>2 百分比布局 100%（一个页面的局部）<br>3 rem  通过计算根元素的字体大小与设计稿还有视口宽度（只在移动端使用）<br>4 媒体查询（pc - pad - 移动端）<br>5 弹性盒模型布局 （B课程 + 3D）</p>
+<p>一般设计师给我们的移动端设计稿的大小是640px<br>移动端设备屏幕宽度<br>iphone 5 – 》 320px<br>fontSize=屏幕宽度/设定基数<em>100<br>fontSize=320px/640</em>100=50px<br>iphone 6 – 》 375px<br>fontSize=375/640<em>100=58.59375px<br>iphone 6p –》 414px<br>fontSize=414/640</em>100=64.6875px</p>
+<p>var winW = document.documentElement.clientWidth, desW = 640, htmlFont = winW / desW * 100;</p>
+<p>设计稿是640  屏幕也是640<br>给根元素（html）设置 font-size:100px;</p>
+<p>rem 布局 对于字体的大小控制不是特别的完美，所以有时候页面中字体部分我们可能还会通过px来进行控制（媒体查询配合）</p>
+<p>给最外面的盒子加一个最大宽度 是640px  设置最小宽度是320px</p>
+<p>求：html 要设置的 fontsize<br>已知：<br>a 设计稿的宽度（基数）<br>b 设备的宽度<br>fontsize = b/a * 100<br>谷歌浏览器 不支持 font-size &lt; 12px</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/04/25/rem布局/" data-id="cj1xfzk3800036kvcfk865bs3" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/04/25/js第一天基础课(1)/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/04/25/函数/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/04/25/css笔记/面试/面试题：/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/25/css笔记/第七天/第七天笔记/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/25/第四天笔记/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/25/第十五天/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/25/第五天/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
