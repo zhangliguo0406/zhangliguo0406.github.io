@@ -61,10 +61,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-css笔记/面试/面试题：" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-服务器使用方法" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/04/25/css笔记/面试/面试题：/" class="article-date">
-  <time datetime="2017-04-25T11:00:29.455Z" itemprop="datePublished">2017-04-25</time>
+    <a href="/2017/04/26/服务器使用方法/" class="article-date">
+  <time datetime="2017-04-26T00:56:41.094Z" itemprop="datePublished">2017-04-26</time>
 </a>
     
   </div>
@@ -73,18 +73,38 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>##面试题：<br>外联式和导入式的差别：</p>
+        <p>#服务器使用方法</p>
+<p>##window</p>
 <ul>
-<li>link和@import虽然都是引入外部的css文件，但是他们是由天差地别的区别的</li>
-<li>link是html标签，@import完全是css提供的方式，要写在css文件或者style标签中。</li>
-<li>他们的加载顺序也是有区别的，当一个页面被加载的时候，link引用的css文件会被同时加载，而@import引入的css文件会等页面全部下载完后再加载。</li>
-<li>当使用javascript控制DOM去改变css样式的时候，只能使用link标签，因为import是不能被DOM控制的。选择器的组成不要超过三个<br>选择器的查找机制是从右向左 面试题<br>后代选择器没有必要将每一层元素都写出来，只写那些关键节点即可（具有代表性的）<br>人为设置的样式要比元素自带的样式权重高<br>块级元素这些特点，我们将其称作 BFC（block formatting context）块状元素在上下文中的渲染模式（块状元素应该怎么排布） 面试题</li>
+<li><p>访问<a href="https://filezilla-project.org/下载传输工具（FTP）" target="_blank" rel="external">https://filezilla-project.org/下载传输工具（FTP）</a><br><img src="./1489823290422.png" alt="Alt text"></p>
+</li>
+<li><p>在window下安装FileZilla非常简单，双击安装程序，一路“next”即可完成安装，并在桌面创建 快键按钮。</p>
+</li>
+<li></li>
+<li>输入<ul>
+<li>【主机】123.57.223.74</li>
+<li>【用户名】stu+qq</li>
+<li>【密码】zfpx</li>
+</ul>
+</li>
+</ul>
+<p><img src="./1489805099679.png" alt="Alt text"><br><img src="./1489805135185.png" alt="Alt text"></p>
+<ul>
+<li>访问自己的网站<br><a href="http://work.zhufengpeixun.cn/stu8888/项目名/index.html" target="_blank" rel="external">http://work.zhufengpeixun.cn/stu8888/项目名/index.html</a></li>
+</ul>
+<p><a href="http://work.zhufengpeixun.cn/stu1519414263/华为导航/index.html" target="_blank" rel="external">http://work.zhufengpeixun.cn/stu1519414263/华为导航/index.html</a></p>
+<p>最终效果<br><img src="./1489805285267.png" alt="Alt text"></p>
+<p>##Mac</p>
+<ul>
+<li>下载安装包 同window</li>
+<li>直接解压双击，即可使用</li>
+<li>操作步骤与window相同</li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/04/25/css笔记/面试/面试题：/" data-id="cj1xfzk4v000f6kvcejldikuz" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/04/26/服务器使用方法/" data-id="cj1y9ullu00008kvcmoqay82r" class="article-share-link">Share</a>
       
       
     </footer>
@@ -94,10 +114,157 @@
 
 
   
-    <article id="post-css笔记/第七天/第七天笔记" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-第六天笔记" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/04/25/css笔记/第七天/第七天笔记/" class="article-date">
-  <time datetime="2017-04-25T11:00:29.441Z" itemprop="datePublished">2017-04-25</time>
+    <a href="/2017/04/26/第六天笔记/" class="article-date">
+  <time datetime="2017-04-26T00:56:41.056Z" itemprop="datePublished">2017-04-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#第六天笔记</p>
+<h2 id="复习"><a href="#复习" class="headerlink" title="复习"></a>复习</h2><h3 id="css的引入方式"><a href="#css的引入方式" class="headerlink" title="css的引入方式"></a>css的引入方式</h3><ul>
+<li>行内式  将css属性通过style这个标签属性直接写在标签中（开始标签中）</li>
+<li>内嵌式 将css属性写在style元素内，一般放在head元素内</li>
+<li>外联式 将css属性写在css文件中，通过link元素将css文件引入到html中，一般这个元素写在head元素内</li>
+<li>导入式 将css属性写在css文件中，通过@import url(“”)/@import ‘url’ 语句将css文件引入到html文件中<ul>
+<li>@import 必须写在style元素内或者css文件内</li>
+<li>@import 必须写在所在文件的第一行</li>
+</ul>
+</li>
+</ul>
+<h3 id="css选择器"><a href="#css选择器" class="headerlink" title="css选择器"></a>css选择器</h3><p>语法：选择器{声明;声明;}  每一个声明后面必须跟着分号</p>
+<ul>
+<li>标签选择器 权重 1 直接将标签名当做选择器 </li>
+<li>类选择器 权重 10 将标签属性class的属性值当做选择器，选择器前面要加一个点 “.”     例如： .box{}</li>
+<li>id选择器 权重 100 将标签属性id的属性值当做选择器，选择器前面要加一个井号 “#” </li>
+<li>通配符选择器 *{}  选择当前文档下的所有元素  权重 0 &lt; x &lt; 1</li>
+<li><p>分组选择器 权重 分开计算  将不同的选择器用逗号隔开，将同样的css属性一起给到不同的html元素</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">div,p,span&#123;&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>交集选择器 权重 所有选择器之和 两个选择器紧挨在一起 </p>
+<ul>
+<li>标签选择器和其他选择器组合的时候，标签选择器要在前面  div.className{}    .className1.className2{}</li>
+<li>组成这个选择器的两个属性或标签必须是同一个html元素的属性</li>
+</ul>
+</li>
+<li><p>后代选择器 权重 所有选择器之和    父代空格子代{}</p>
+<ul>
+<li>父代和子代 不一定是相邻的<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">div p span&#123;&#125;</div><div class="line">p span&#123;&#125;</div><div class="line">a span&#123;&#125;</div><div class="line">div span&#123;&#125;</div><div class="line">&lt;div&gt;</div><div class="line">	&lt;p&gt;</div><div class="line">		&lt;a&gt;&lt;span&gt;&lt;/span&gt;&lt;/a&gt;</div><div class="line">	&lt;/p&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>子级选择器 权重 所有选择器权重之和  父级选择器&gt;子级选择器{} </p>
+<ul>
+<li>两个选择器是相邻的<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">a&gt;span&#123;color:red;&#125;</div><div class="line">p&gt;a&gt;span&#123;&#125;</div><div class="line">div a&gt;span&#123;&#125;</div><div class="line">p a&gt;span&#123;&#125;</div><div class="line">p&gt;a span&#123;&#125;</div><div class="line">&lt;div&gt;</div><div class="line">	&lt;p&gt;</div><div class="line">		&lt;a&gt;aaaa&lt;span&gt;1111&lt;/span&gt;&lt;/a&gt;</div><div class="line">	&lt;/p&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>相邻兄弟选择器 权重 所有选择器之和 哥哥选择器+相邻弟弟选择器{}</p>
+<ul>
+<li>只能选择第一个弟弟元素<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">p+p&#123;color:red;&#125;  第二个和第三个都会被选择</div><div class="line">&lt;div&gt;</div><div class="line">	&lt;p&gt;</div><div class="line">		&lt;a&gt;aaaa&lt;span&gt;1111&lt;/span&gt;&lt;/a&gt;</div><div class="line">	&lt;/p&gt;</div><div class="line">	&lt;p&gt;</div><div class="line">		&lt;a&gt;aaaa&lt;span&gt;1111&lt;/span&gt;&lt;/a&gt;</div><div class="line">	&lt;/p&gt;</div><div class="line">	&lt;p&gt;</div><div class="line">		&lt;a&gt;aaaa&lt;span&gt;1111&lt;/span&gt;&lt;/a&gt;</div><div class="line">	&lt;/p&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>属性选择器 权重 10  将元素的标签属性名和属性值当做选择器，必须写在[]中</p>
+<ul>
+<li>[属性名]{}</li>
+<li>[属性名=属性值]{}</li>
+</ul>
+</li>
+<li>伪类  权重 10 指元素的一个状态 鼠标经过 点击… 基本选择器:伪类{}  .box:hover{}</li>
+<li>伪元素  before  after  基本选择:伪元素{}器:before{display:;content:””;}<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">div:before&#123;display:block;content:&quot;before;&quot;&#125;</div><div class="line">div:after&#123;display:block;content:&quot;after;&quot;&#125;</div><div class="line"></div><div class="line">&lt;div&gt;</div><div class="line">	&lt;before&gt;我永远挨着div的开始标签&lt;/before&gt;</div><div class="line">	我是一个快乐的div</div><div class="line">	&lt;after&gt;我永远挨着div的结束标签&lt;/after&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="display"><a href="#display" class="headerlink" title="display"></a>display</h3><h4 id="block-块级元素"><a href="#block-块级元素" class="headerlink" title="block  块级元素"></a>block  块级元素</h4><p>遵循的浏览器渲染模式 BFC</p>
+<ul>
+<li>独占一行</li>
+<li>子级元素默认会在父级元素的左上角，平级元素会向下排布</li>
+<li>在不设置值宽高，宽度是父级元素内容的宽度，高度是本身内容的高度</li>
+<li>可以直接设置盒子模型的所有属性</li>
+<li>可以嵌套所有的元素<ul>
+<li>p  dt  h1-h6 不能嵌套其他的块级元素<h4 id="inline-行内元素"><a href="#inline-行内元素" class="headerlink" title="inline  行内元素"></a>inline  行内元素</h4>遵循的浏览器渲染模式 IFC</li>
+</ul>
+</li>
+<li>都会在一行显示，从左到右，到达父级盒子最大宽度后自动折行</li>
+<li>宽高不能设置，宽度和高度是由本身内容撑起来的</li>
+<li>可以设置border，padding的左右值和margin的左右值</li>
+<li>行内元素不能嵌套块级元素 <ul>
+<li>a元素必要的时候，可以嵌套其他块级元素（整个模块添加超链接的时候，才可以这样用）</li>
+</ul>
+</li>
+<li>会受到内容长度的影响，出现基线对齐（上下对齐/垂直对齐） 将对齐方式改变为 盒子顶部对齐</li>
+<li>在编辑代码的时候，元素之间有空格或回车的时候，在页面显示时，两个盒子之间有间隙<h4 id="inline-block-行内块级元素"><a href="#inline-block-行内块级元素" class="headerlink" title="inline-block  行内块级元素"></a>inline-block  行内块级元素</h4></li>
+<li>都会在一行显示，从左到右，到达父级盒子最大宽度后自动折行</li>
+<li>不设置宽高的时候，宽高由内容绝对，</li>
+<li>直接设置宽度和高度，margin和padding</li>
+<li>会受到内容长度的影响，出现基线对齐（上下对齐/垂直对齐） 将对齐方式改变为 盒子顶部对齐</li>
+<li>在编辑代码的时候，元素之间有空格或回车的时候，在页面显示时，两个盒子之间有间隙</li>
+</ul>
+<p>总结：<br>常用的块级有哪些？<br>div ul ol li p h1-h6 dl dt dd table tr thead tbody tfoot form<br>常用的行内有哪些？<br>span a em i b strong u sup sub img（可以直接设置宽度高度）</p>
+<h2 id="浮动-float"><a href="#浮动-float" class="headerlink" title="浮动 float"></a>浮动 float</h2><ul>
+<li>left 左浮动  从第一个元素开始，在父级元素内，从左向右排列，到达父级元素的最大宽度时，会自动折行</li>
+<li>right 右浮动 从第一个元素开始，在父级元素内，从右向左排列，到达父级元素的最大宽度时，会自动折行</li>
+<li>none 去除浮动 将浮动元素的浮动属性去掉</li>
+</ul>
+<p>文档流：行内元素和块级元素默认的渲染模式</p>
+<p>特点：</p>
+<ul>
+<li>脱离文档流（父级元素找不到子级元素）相当于来到了第二层级，平行于基本的文档流</li>
+<li>所有元素都可以设置这个属性 a img div li ul… </li>
+<li>浮动元素可以直接设置盒子模型的所有属性</li>
+<li>浮动元素不设置宽高时，宽高是本身内容的大小</li>
+<li>行内元素，行内块级元素和文字会围绕着浮动元素排列</li>
+</ul>
+<blockquote>
+<p>有浮动属性的元素，排列方式听浮动的，没有浮动属性的元素，听display的</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">div&#123;</div><div class="line">	display:inline-block;</div><div class="line">	float:right; 浮动生效</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="清除浮动的方法"><a href="#清除浮动的方法" class="headerlink" title="清除浮动的方法"></a>清除浮动的方法</h3><h4 id="给父级元素设置高度"><a href="#给父级元素设置高度" class="headerlink" title="给父级元素设置高度"></a>给父级元素设置高度</h4><p>这个元素内是否有内容，高度都一定</p>
+<h4 id="给父级元素设置overflow-hidden-属性"><a href="#给父级元素设置overflow-hidden-属性" class="headerlink" title="给父级元素设置overflow:hidden;属性"></a>给父级元素设置overflow:hidden;属性</h4><p>是将浮动的元素拉回文档流</p>
+<h4 id="给父级元素设置float属性（父子元素都是浮动元素，就可以互相识别了）–-不要用"><a href="#给父级元素设置float属性（父子元素都是浮动元素，就可以互相识别了）–-不要用" class="headerlink" title="给父级元素设置float属性（父子元素都是浮动元素，就可以互相识别了）– 不要用"></a>给父级元素设置float属性（父子元素都是浮动元素，就可以互相识别了）– 不要用</h4><h4 id="利用clear-both-属性清除浮动"><a href="#利用clear-both-属性清除浮动" class="headerlink" title="利用clear:both;属性清除浮动"></a>利用clear:both;属性清除浮动</h4><ul>
+<li>带有这个属性的元素必须是块级元素</li>
+<li>带有这个属性的元素必须放在最后一个浮动元素之后</li>
+<li>带有这个属性的元素不能带有float属性<br>利用伪类清除浮动是<strong>工作中最长用的方法</strong><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">&lt;style&gt;</div><div class="line">.clear&#123;*zoom:1;&#125;/*兼容低版本浏览器*/</div><div class="line">.clear:after&#123;display:block;content:&quot;&quot;;clear:both;&#125;/*兼容高版本浏览器*/</div><div class="line">&lt;/style&gt;</div><div class="line">&lt;ul class=&quot;clear&quot;&gt;</div><div class="line">	&lt;li&gt;&lt;/li&gt;</div><div class="line">	&lt;li&gt;&lt;/li&gt;</div><div class="line">	&lt;li&gt;&lt;/li&gt;</div><div class="line">	&lt;!--::after--&gt;</div><div class="line">&lt;/ul&gt;</div><div class="line">```		</div><div class="line">## 定位</div><div class="line">### 相对定位</div><div class="line">特点：</div><div class="line">- 不脱离文档流</div><div class="line">- 参照物是本身</div><div class="line">- 给绝对定位的元素做参照物</div><div class="line">- 发生位置改变的时候，原来的位置还占用</div><div class="line">- 层级大于文档流内其他元素（会盖在其他元素之上）</div><div class="line">- 当top和bottom同时设定时，top生效；left和right同时设定时，left生效</div><div class="line">- position: relative;和float同时设定时，都生效，先浮动后定位（先脱离文档流）</div><div class="line"></div><div class="line">&gt; 盒子自己发生位置改变，又不影响其他元素的时候，选择用相对定位</div><div class="line"></div><div class="line">### 绝对定位</div><div class="line">- 脱离文档流</div><div class="line">- 所有元素默认都会去找参照物的起点位置，互相叠盖在一起</div><div class="line">- 宽高不设置时，宽度和高度是由本身内容决定的</div><div class="line">- 绝对定位的元素，如果不设置四个方向的值，并且同级之前有其他内容，它会默认排在这个内容之后</div><div class="line">- 当绝对定位元素有宽高的时候，top和bottom同时设置，top生效，left和right设置时，left生效</div><div class="line">- 绝对定位元素设置宽高100%时，继承的宽高是其参照物的宽高</div><div class="line">- 当绝对定位元素没有宽高的时候，</div><div class="line">- 在不设置参照物时，参照物是body（画布）</div><div class="line">- 可以认为设置参照物</div><div class="line">	- 需是这个绝对定位元素的父级（可不是紧邻的父级）元素</div><div class="line">	- 参照物元素必须是带有定位属性的元素（可以是相对、绝对、固定）</div><div class="line">	- 父级元素都有定位属性，绝对定位元素的参照物是离他最近的那个父级元素</div><div class="line">	- 平级元素不能作为参照物</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><div style="position: relative;"><br>    <p style="position: absolute;"><br>        <span style="position: absolute;"></span><br>    </p><br></div><br>```</p>
+<h3 id="固定定位"><a href="#固定定位" class="headerlink" title="固定定位"></a>固定定位</h3><ul>
+<li>脱离文档流</li>
+<li>参照物始终是可视窗口</li>
+<li>不设置宽高时，宽度和高度是内容大小</li>
+<li>多用在辅导航、返回头部等位置</li>
+</ul>
+<blockquote>
+<p><code>&lt;a href=&quot;#top&quot;&gt;TOP&lt;/a&gt;</code><br>href 中 写一个# 或者 什么都不写 或者 写#top都可以实现返回头部的效果</p>
+</blockquote>
+<h3 id="去掉定位属性-position-static"><a href="#去掉定位属性-position-static" class="headerlink" title="去掉定位属性  position: static;"></a>去掉定位属性  position: static;</h3><h3 id="z-index-改变定位元素的层级关系"><a href="#z-index-改变定位元素的层级关系" class="headerlink" title="z-index 改变定位元素的层级关系"></a>z-index 改变定位元素的层级关系</h3><ul>
+<li>不能改变父子之间的层级关系（正值）</li>
+<li>可以设置负值，跑到所有元素之后</li>
+<li>当父子元素都有z-index值的时候，如果父级元素之间有值，那么子级元素不会出来进行比较</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/04/26/第六天笔记/" data-id="cj1y9ulma00028kvcuh0zxvh4" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-第七天笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/04/26/第七天笔记/" class="article-date">
+  <time datetime="2017-04-26T00:56:41.056Z" itemprop="datePublished">2017-04-26</time>
 </a>
     
   </div>
@@ -197,7 +364,284 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/04/25/css笔记/第七天/第七天笔记/" data-id="cj1xfzk4q000c6kvcjiku62ke" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/04/26/第七天笔记/" data-id="cj1y9ullu00018kvcy129cvri" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-css选择器2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/04/26/css选择器2/" class="article-date">
+  <time datetime="2017-04-26T00:56:41.025Z" itemprop="datePublished">2017-04-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="CSS3-选择器"><a href="#CSS3-选择器" class="headerlink" title="CSS3 选择器"></a>CSS3 选择器</h1><p><img src="./1491215920229.png" alt="Alt text"></p>
+<h2 id="基本选择器"><a href="#基本选择器" class="headerlink" title="基本选择器"></a>基本选择器</h2><table>
+<thead>
+<tr>
+<th>选择器</th>
+<th>类型</th>
+<th>类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>*</td>
+<td>通配符</td>
+<td>选择所有的HTML元素</td>
+</tr>
+<tr>
+<td>Element</td>
+<td>元素选择器</td>
+<td>选择指定HTML元素</td>
+</tr>
+<tr>
+<td>#id</td>
+<td>id选择器</td>
+<td>选择指定ID属性值为“id”的任意类型元素</td>
+</tr>
+<tr>
+<td>.class</td>
+<td>类选择器</td>
+<td>选择指定class属性值为“class”的任意类型的任意多个元素</td>
+</tr>
+<tr>
+<td>selector1,selectorN</td>
+<td>分组选择器</td>
+<td>将每一个选择器匹配的元素集合并</td>
+</tr>
+</tbody>
+</table>
+<h2 id="层次选择器"><a href="#层次选择器" class="headerlink" title="层次选择器"></a>层次选择器</h2><table>
+<thead>
+<tr>
+<th>选择器</th>
+<th>类型</th>
+<th>类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>E F</td>
+<td>后代选择器（包含选择器）</td>
+<td>选择匹配的F元素，且匹配的F元素被包含在匹配的E元素内</td>
+</tr>
+<tr>
+<td>E &gt; F</td>
+<td>子选择器</td>
+<td>选择元素E下面的第一层级F元素</td>
+</tr>
+<tr>
+<td>E + F</td>
+<td>相邻兄弟选择器</td>
+<td>选择E元素平级并且相邻的F元素</td>
+</tr>
+<tr>
+<td>E ~ F</td>
+<td>通用选择器</td>
+<td>选择前面有 E 元素的每个 F 元素</td>
+</tr>
+</tbody>
+</table>
+<h2 id="动态伪类选择器"><a href="#动态伪类选择器" class="headerlink" title="动态伪类选择器"></a>动态伪类选择器</h2><table>
+<thead>
+<tr>
+<th>选择器</th>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Element:link</td>
+<td>链接伪类选择器</td>
+<td>未访问状态</td>
+</tr>
+<tr>
+<td>Element:visited</td>
+<td>链接伪类选择器</td>
+<td>访问后状态</td>
+</tr>
+<tr>
+<td>Element:active</td>
+<td>用户行为选择器</td>
+<td>被激活，常用链接与按钮</td>
+</tr>
+<tr>
+<td>Element:hover</td>
+<td>用户行为选择器</td>
+<td>鼠标停留</td>
+</tr>
+<tr>
+<td>Element:focus</td>
+<td>用户行为选择器</td>
+<td>获取焦点</td>
+</tr>
+</tbody>
+</table>
+<h2 id="目标伪类选择器"><a href="#目标伪类选择器" class="headerlink" title="目标伪类选择器"></a>目标伪类选择器</h2><table>
+<thead>
+<tr>
+<th>选择器</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>E:target</td>
+<td>选择匹配E的所有元素，且匹配元素被相关URL指向</td>
+</tr>
+</tbody>
+</table>
+<h2 id="属性选择器"><a href="#属性选择器" class="headerlink" title="属性选择器"></a>属性选择器</h2><table>
+<thead>
+<tr>
+<th>选择器</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[attribute]</td>
+<td>选择带有相同标签属性所有元素</td>
+</tr>
+<tr>
+<td>[attribute=value]</td>
+<td>选择相同标签属性和属性值的所有元素</td>
+</tr>
+<tr>
+<td>[attribute~=value]</td>
+<td>选择属性包含指定名字的所有元素</td>
+</tr>
+<tr>
+<td>[attribute</td>
+<td>=value]</td>
+<td>选择指定属性名的属性值以指定字母开头的所有元素</td>
+</tr>
+<tr>
+<td>[attribute^=value]</td>
+<td>选择其 src 属性值以 “https” 开头的每个 <code>&lt;a&gt;</code> 元素</td>
+</tr>
+<tr>
+<td>[attribute$=value]</td>
+<td>选择其 src 属性以 “.pdf” 结尾的所有 <code>&lt;a&gt;</code> 元素</td>
+</tr>
+<tr>
+<td>[attribute*=value]</td>
+<td>选择其 src 属性中包含 “abc” 子串的每个 <code>&lt;a&gt;</code>元素</td>
+</tr>
+</tbody>
+</table>
+<h2 id="结构伪类选择器"><a href="#结构伪类选择器" class="headerlink" title="结构伪类选择器"></a>结构伪类选择器</h2><table>
+<thead>
+<tr>
+<th>选择器</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>:first-of-type</td>
+<td>选择属于其父元素的首个 <code>&lt;p&gt;</code> 元素的每个 <code>&lt;p&gt;</code> 元素</td>
+</tr>
+<tr>
+<td>:last-of-type</td>
+<td>选择属于其父元素的最后 <code>&lt;p&gt;</code> 元素的每个 <code>&lt;p&gt;</code> 元素</td>
+</tr>
+<tr>
+<td>:only-of-type</td>
+<td>选择属于其父元素唯一的 <code>&lt;p&gt;</code> 元素的每个 <code>&lt;p&gt;</code> 元素</td>
+</tr>
+<tr>
+<td>:only-child</td>
+<td>选择属于其父元素的唯一子元素的每个 <code>&lt;p&gt;</code>元素</td>
+</tr>
+<tr>
+<td>nth-child(n)</td>
+<td>选择属于其父元素的第n个指定子元素，Odd 和 even 是可用于匹配下标是奇数或偶数的子元素的关键词，使用公式 (an + b)</td>
+</tr>
+<tr>
+<td>:nth-last-child(n)</td>
+<td>同上，从最后一个元素计数</td>
+</tr>
+<tr>
+<td>:nth-of-type(n)</td>
+<td>选择属于其父元素第二个 <code>&lt;p&gt;</code> 元素的每个 <code>&lt;p&gt;</code> 元素,也可使用Odd和even与公式（an+b）</td>
+</tr>
+<tr>
+<td>:nth-last-of-type(n)</td>
+<td>同上，从最后一个元素计数</td>
+</tr>
+<tr>
+<td>:last-child</td>
+<td>选择属于其父元素最后一个子元素</td>
+</tr>
+<tr>
+<td>:root</td>
+<td>选择跟元素（html）</td>
+</tr>
+<tr>
+<td>:empty</td>
+<td>选择没有子元素的元素</td>
+</tr>
+<tr>
+<td>:enabled</td>
+<td>已经使用的input元素</td>
+</tr>
+<tr>
+<td>:disabled</td>
+<td>选择禁用的input元素</td>
+</tr>
+<tr>
+<td>:checked</td>
+<td>被选中的input元素</td>
+</tr>
+<tr>
+<td>:not(selector)</td>
+<td>选择非p元素</td>
+</tr>
+<tr>
+<td>::selection</td>
+<td>选择用户选择部分</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>举例</th>
+<th>描述</th>
+<th>ie(6-8)</th>
+<th>ie(9+)</th>
+<th>其他</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td>×</td>
+<td>√</td>
+</tr>
+</tbody>
+</table>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/04/26/css选择器2/" data-id="cj1y9ulma00038kvcm8zwg0rr" class="article-share-link">Share</a>
       
       
     </footer>
@@ -971,205 +1415,6 @@ div{height:100px;}
 
 
   
-    <article id="post-小技巧总结" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/04/25/小技巧总结/" class="article-date">
-  <time datetime="2017-04-25T11:00:29.292Z" itemprop="datePublished">2017-04-25</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="小技巧总结"><a href="#小技巧总结" class="headerlink" title="小技巧总结"></a>小技巧总结</h1><h2 id="子元素在父元素内两端对齐"><a href="#子元素在父元素内两端对齐" class="headerlink" title="子元素在父元素内两端对齐"></a>子元素在父元素内两端对齐</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">&lt;style&gt;</div><div class="line">ul&#123;</div><div class="line">	text-align: justify;</div><div class="line">    text-justify:distribute-all-lines;</div><div class="line">    -ms-text-justify: distribute-all-lines;</div><div class="line">&#125;</div><div class="line">ul:after&#123;</div><div class="line">	width: 100%;</div><div class="line">	height: 0;</div><div class="line">	margin: 0;</div><div class="line">	display: inline-block;</div><div class="line">	overflow: hidden;</div><div class="line">	content: &apos;&apos;;</div><div class="line">&#125;</div><div class="line">li&#123;</div><div class="line">display:inline-block;</div><div class="line">&#125;</div><div class="line">&lt;/style&gt;</div><div class="line">&lt;ul&gt;</div><div class="line">	&lt;li&gt;&lt;/li&gt;</div><div class="line">	&lt;li&gt;&lt;/li&gt;</div><div class="line">	&lt;li&gt;&lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div></pre></td></tr></table></figure>
-<h2 id="进制选中元素内容"><a href="#进制选中元素内容" class="headerlink" title="进制选中元素内容"></a>进制选中元素内容</h2><p>none：<br>文本不能被选择<br>text：<br>可以选择文本 默认值<br>all：<br>当所有内容作为一个整体时可以被选择。如果双击或者在上下文上点击子元素，那么被选择的部分将是以该子元素向上回溯的最高祖先元素。<br>element：<br>可以选择文本，但选择范围受元素边界的约束</p>
-<blockquote>
-<p>IE6-9不支持该属性，但支持使用标签属性 onselectstart=”return false;” 来达到 user-select:none 的效果；Safari和Chrome也支持该标签属性；<br>直到Opera12.5仍然不支持该属性，但和IE6-9一样，也支持使用私有的标签属性 unselectable=”on” 来达到 user-select:none 的效果；unselectable 的另一个值是 off；<br>除Chrome和Safari外，在其它浏览器中，如果将文本设置为 -ms-user-select:none;，则用户将无法在该文本块中开始选择文本。不过，如果用户在页面的其他区域开始选择文本，则用户仍然可以继续选择将文本设置为 -ms-user-select:none; 的区域文本；</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&lt;style&gt;</div><div class="line">.test&#123;</div><div class="line">	-webkit-user-select: none;</div><div class="line">    -moz-user-select: none;</div><div class="line">    -ms-user-select: none;</div><div class="line">    user-select: none;</div><div class="line">	background:#eee;</div><div class="line">&#125;</div><div class="line">&lt;/style&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">&lt;div class=&quot;test&quot; onselectstart=&quot;return false;&quot; unselectable=&quot;on&quot;&gt;</div><div class="line">选择我试试，你会发现怎么也选择不到我，哈哈哈哈</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
-<h2 id="如何让元素在指定父级元素内居中"><a href="#如何让元素在指定父级元素内居中" class="headerlink" title="如何让元素在指定父级元素内居中"></a>如何让元素在指定父级元素内居中</h2><h3 id="水平居中-块状元素"><a href="#水平居中-块状元素" class="headerlink" title="水平居中 块状元素"></a>水平居中 块状元素</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;style&gt;</div><div class="line">div&#123;</div><div class="line">	background:yellow;</div><div class="line">&#125;</div><div class="line">p&#123;</div><div class="line">	margin:0 auto;</div><div class="line">	width:50%;</div><div class="line">	height:100px;</div><div class="line">	background:red;</div><div class="line">&#125;</div><div class="line">&lt;/style&gt;</div><div class="line">&lt;div&gt;</div><div class="line">	&lt;p&gt;&lt;/p&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
-<h3 id="水平居中-行内-行内块状元素"><a href="#水平居中-行内-行内块状元素" class="headerlink" title="水平居中 行内/行内块状元素"></a>水平居中 行内/行内块状元素</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">&lt;style&gt;</div><div class="line">div&#123;</div><div class="line">	background:yellow;</div><div class="line">	text-align:center;</div><div class="line">&#125;</div><div class="line">p&#123;</div><div class="line">	display:inline-block;</div><div class="line">	padding: 0 10%;</div><div class="line">	width:20%;</div><div class="line">	height:100px;</div><div class="line">	background:red;</div><div class="line">&#125;</div><div class="line">&lt;/style&gt;</div><div class="line">&lt;div&gt;</div><div class="line">	&lt;p&gt;&lt;/p&gt;</div><div class="line">	&lt;p&gt;&lt;/p&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
-<h3 id="水平居中"><a href="#水平居中" class="headerlink" title="水平居中"></a>水平居中</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line">&lt;style type=&quot;text/css&quot;&gt;</div><div class="line">    /*主要用到position:relative配合left:50%的技巧，兼容各浏览器，需要注意的是IE7下需要设置overflow:hidden;*/</div><div class="line">    /*来解决无法设置子元素宽度的BUG。*/</div><div class="line">    * &#123;</div><div class="line">        margin: 0;</div><div class="line">        padding: 0;</div><div class="line">        list-style: none;</div><div class="line">        font-size: 14px;</div><div class="line">        font-family: Tahoma, Geneva, sans-serif;</div><div class="line">    &#125;</div><div class="line">    /** relative left 50% */</div><div class="line">    .page &#123;</div><div class="line">        float: left;</div><div class="line">        position: relative;</div><div class="line">        left: 50%;</div><div class="line">    &#125;</div><div class="line">    /** relative right 50% */</div><div class="line">    .page li &#123;</div><div class="line">        float: left;</div><div class="line">        position: relative;</div><div class="line">        right: 50%;</div><div class="line">        overflow: hidden;</div><div class="line">        margin: 0 5px;</div><div class="line">    &#125;</div><div class="line">&lt;/style&gt;</div><div class="line"></div><div class="line">&lt;ul class=&quot;page&quot;&gt;</div><div class="line">    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;上一页&lt;/a&gt;&lt;/li&gt;</div><div class="line">    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;1&lt;/a&gt;&lt;/li&gt;</div><div class="line">    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;2&lt;/a&gt;&lt;/li&gt;</div><div class="line">    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;3&lt;/a&gt;&lt;/li&gt;</div><div class="line">    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;4&lt;/a&gt;&lt;/li&gt;</div><div class="line">    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;2&lt;/a&gt;&lt;/li&gt;</div><div class="line">    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;3&lt;/a&gt;&lt;/li&gt;</div><div class="line">    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;2&lt;/a&gt;&lt;/li&gt;</div><div class="line">    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;3&lt;/a&gt;&lt;/li&gt;</div><div class="line">    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;4&lt;/a&gt;&lt;/li&gt;</div><div class="line">    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;5&lt;/a&gt;&lt;/li&gt;</div><div class="line">    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;6&lt;/a&gt;&lt;/li&gt;</div><div class="line">    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;下一页&lt;/a&gt;&lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div></pre></td></tr></table></figure>
-<h3 id="水平居中-margin"><a href="#水平居中-margin" class="headerlink" title="水平居中 margin"></a>水平居中 margin</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line">&lt;style type=&quot;text/css&quot;&gt;</div><div class="line">        /*这里也可以多套一层的方式设置left:-50%，更合理，也可以避免一些不必要的IE BUG。*/</div><div class="line">        /*这种float元素居中的方式其实可以延展应用到很多需要浮动元素又居中的情况。*/</div><div class="line">        * &#123;</div><div class="line">            margin: 0;</div><div class="line">            padding: 0;</div><div class="line">            list-style: none;</div><div class="line">        &#125;</div><div class="line">        /*父级元素向左浮动50%*/</div><div class="line">        .inwrap &#123;</div><div class="line">            float: left;</div><div class="line">            position: relative;</div><div class="line">            left: 50%;</div><div class="line">        &#125;</div><div class="line">        /*父级元素向左浮动-50%*/</div><div class="line">        .page &#123;</div><div class="line">            float: left;</div><div class="line">            position: relative;</div><div class="line">            left: -50%;</div><div class="line">        &#125;</div><div class="line">        .page li &#123;</div><div class="line">            float: left;</div><div class="line">            margin: 0 5px;</div><div class="line">        &#125;</div><div class="line">    &lt;/style&gt;</div><div class="line">&lt;div class=&quot;inwrap&quot;&gt;</div><div class="line">    &lt;ul class=&quot;page&quot;&gt;</div><div class="line">        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;上一页&lt;/a&gt;&lt;/li&gt;</div><div class="line">        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;1&lt;/a&gt;&lt;/li&gt;</div><div class="line">        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;2&lt;/a&gt;&lt;/li&gt;</div><div class="line">        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;3&lt;/a&gt;&lt;/li&gt;</div><div class="line">        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;4&lt;/a&gt;&lt;/li&gt;</div><div class="line">        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;2&lt;/a&gt;&lt;/li&gt;</div><div class="line">        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;3&lt;/a&gt;&lt;/li&gt;</div><div class="line">        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;2&lt;/a&gt;&lt;/li&gt;</div><div class="line">        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;3&lt;/a&gt;&lt;/li&gt;</div><div class="line">        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;4&lt;/a&gt;&lt;/li&gt;</div><div class="line">        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;5&lt;/a&gt;&lt;/li&gt;</div><div class="line">        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;6&lt;/a&gt;&lt;/li&gt;</div><div class="line">        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;下一页&lt;/a&gt;&lt;/li&gt;</div><div class="line">    &lt;/ul&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
-<h3 id="利用定位-让子元素中心点与父元素中心点重合"><a href="#利用定位-让子元素中心点与父元素中心点重合" class="headerlink" title="利用定位 让子元素中心点与父元素中心点重合"></a>利用定位 让子元素中心点与父元素中心点重合</h3><h4 id="第一种方法"><a href="#第一种方法" class="headerlink" title="第一种方法"></a>第一种方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">&lt;style&gt;</div><div class="line">div&#123;</div><div class="line">        position: relative;</div><div class="line">        width: 600px;</div><div class="line">        height: 600px;</div><div class="line">        background: mistyrose;</div><div class="line">    &#125;</div><div class="line">    p&#123;</div><div class="line">        position: absolute;</div><div class="line">        top:50%;</div><div class="line">        left: 50%;</div><div class="line">        margin: -150px 0 0 -150px;</div><div class="line">        width: 300px;</div><div class="line">        height: 300px;</div><div class="line">        background: red;</div><div class="line">    &#125;</div><div class="line">&lt;/style&gt;</div><div class="line">&lt;div&gt;</div><div class="line">	&lt;p&gt;&lt;/p&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
-<h4 id="第二种方法"><a href="#第二种方法" class="headerlink" title="第二种方法"></a>第二种方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">&lt;style&gt;</div><div class="line">    div&#123;</div><div class="line">        position: relative;</div><div class="line">        width: 600px;</div><div class="line">        height: 600px;</div><div class="line">        background: mistyrose;</div><div class="line">    &#125;</div><div class="line">    p&#123;</div><div class="line">        position: absolute;</div><div class="line">        top:0;</div><div class="line">        left: 0;</div><div class="line">        right:0;</div><div class="line">        bottom: 0;</div><div class="line">        margin: auto;</div><div class="line">        width: 300px;</div><div class="line">        height: 300px;</div><div class="line">        background: red;</div><div class="line">    &#125;</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure>
-<h4 id="第三种方法"><a href="#第三种方法" class="headerlink" title="第三种方法"></a>第三种方法</h4><p>vertical-align<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">div&#123;</div><div class="line">        width: 600px;</div><div class="line">        height: 600px;</div><div class="line">        background: mistyrose;</div><div class="line">        text-align: center;</div><div class="line">        font-size: 0;</div><div class="line">    &#125;</div><div class="line">    p&#123;</div><div class="line">        display: inline-block;</div><div class="line">        vertical-align: middle;</div><div class="line">    &#125;</div><div class="line">    .canzhaowu&#123;</div><div class="line">        height: 100%;</div><div class="line">        background: #59b07d;</div><div class="line">        width: 0;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">    .cur&#123;</div><div class="line">        height: 200px;</div><div class="line">        width: 200px;</div><div class="line">        background: green;</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
-<h2 id="让页面里的字体变清晰，变细用CSS怎么做？"><a href="#让页面里的字体变清晰，变细用CSS怎么做？" class="headerlink" title="让页面里的字体变清晰，变细用CSS怎么做？"></a>让页面里的字体变清晰，变细用CSS怎么做？</h2><p>（-webkit-font-smoothing: antialiased;）</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/04/25/小技巧总结/" data-id="cj1xfzk3f00066kvckuby882a" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-动画 animation" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/04/25/动画 animation/" class="article-date">
-  <time datetime="2017-04-25T11:00:29.250Z" itemprop="datePublished">2017-04-25</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>#动画 animation<br>一些 CSS 属性是可以有动画效果的，这意味着它们可以用于动画和过渡。</p>
-<p>动画属性可以逐渐地从一个值变化到另一个值，比如尺寸大小、数量、百分比和颜色。</p>
-<p>因为是css3新出现的属性，所以并不是所有的浏览器都支持。</p>
-<p> -webkit-, -moz-, 或 -o- 指定了第一个支持该属性的浏览器版本前缀。<br><img src="./1491031504476.png" alt="Alt text"></p>
-<p>那么如何来实现动画效果呢？<br>如果你熟悉动漫，就会看过一本小书，每一页画上一个动作，快速翻页时，小书上的人物或者景象就会动起来，我么将每一页都称之为帧，也叫做帧动画，那么这个也是一样滴，我么利用关键帧来实现动画效果。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">/*先来个简单的效果，我想让一个盒子从左侧慢慢的移动到右侧*/</div><div class="line"></div><div class="line">#myDIV</div><div class="line">&#123;</div><div class="line">	width:300px;</div><div class="line">	height:200px;</div><div class="line">	background:red;</div><div class="line">	animation:mymove 5s infinite;</div><div class="line">	/*Safari 和 Chrome:*/</div><div class="line">	-webkit-animation:mymove 5s infinite;</div><div class="line">&#125;</div><div class="line"></div><div class="line">keyframes mymove</div><div class="line">&#123;</div><div class="line">from &#123;left:0;&#125;</div><div class="line">to &#123;left:500px;&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">/*Safari 和 Chrome:*/</div><div class="line">-webkit-keyframes mymove</div><div class="line">&#123;</div><div class="line">from &#123;left:0;&#125;</div><div class="line">to &#123;left:500px;&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>那么以上代码都是什么意思呢？如何创建一个简单的动画呢？<br>那么我们一步一步来。<br>首先，创建一个动画，定义每一个关键帧的效果，使用<br>keyframes animationname{}，但是这个只是定义动画，不会执行。<br>[freɪmz] 关键帧</p>
-<blockquote>
-<p>以百分比来规定改变发生的时间，或者通过关键词 “from” 和 “to”，等价于 0% 和 100%。</p>
-<p>百分比是指动画完成一遍的时间长度的的百分比 ，0% 是动画的开始时间，50%是动画完成一半的时间，100% 动画的结束时间。百分比后面的花括号写：在动画执行过程中的某时间点要完成的变化。</p>
-<p>为了获得最佳的浏览器支持，您应该始终定义 0% 和 100% 选择器。</p>
-</blockquote>
-<p>其次，通过配合animation来运转，就像刚刚那个例子一样。</p>
-<p>那么下面我们就来说说animation（动画这个属性）<br>animation是css3的一个新增属性，所以支持的浏览器有以下几种：<br><img src="./1491052978498.png" alt="Alt text"><br>所以在使用的时候，去要添加前缀， -webkit-, -ms- 或 -moz-。</p>
-<p>这个属性是一个复杂属性，所以有很多的分支属性，下面我们就一点一点看一下。</p>
-<h2 id="animation-name"><a href="#animation-name" class="headerlink" title="animation-name"></a>animation-name</h2><p>指定要绑定到选择器的关键帧的名称</p>
-<p>这个属性有两个值，第一个是绑定到选择器的关键帧名称，另一个是none，指没有设置过动画，或者覆盖掉之前的动画。</p>
-<p>##animation-duration<br>[duˈreɪʃn] 持续<br>属性定义动画完成一个周期需要多少秒或毫秒</p>
-<p>##animation-timing-function<br>指定动画将如何完成一个周期</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">值</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">linear</td>
-<td>匀速</td>
-</tr>
-<tr>
-<td style="text-align:left">ease[iz]</td>
-<td>默认，低速开始，然后加快，结束前变慢</td>
-</tr>
-<tr>
-<td style="text-align:left">ease-in</td>
-<td>动画以低速开始</td>
-</tr>
-<tr>
-<td style="text-align:left">ease-out</td>
-<td>动画以低速结束</td>
-</tr>
-<tr>
-<td style="text-align:left">ease-in-out</td>
-<td>动画以低速开始和结束</td>
-</tr>
-<tr>
-<td style="text-align:left">cubic-bezier(n,n,n,n)</td>
-<td>在 cubic-bezier 函数中自己的值。可能的值是从 0 到 1 的</td>
-</tr>
-</tbody>
-</table>
-<h2 id="animation-delay"><a href="#animation-delay" class="headerlink" title="animation-delay"></a>animation-delay</h2><p>[dɪˈle] 延迟推迟</p>
-<p>属性定义动画什么时候开始<br>值单位可以是秒（s）或毫秒（ms）<br>允许负值，-5s 使动画马上开始，但跳过 5秒进入动画。</p>
-<h2 id="animation-iteration-count"><a href="#animation-iteration-count" class="headerlink" title="animation-iteration-count"></a>animation-iteration-count</h2><p>iteration [ˌɪtəˈreʃən] 反复 重复<br>count [kaʊnt] 计数 次数</p>
-<p>定义动画的播放次数<br>除了可以定义次数，还可以定义为infinite，持续播放。</p>
-<h2 id="animation-direction"><a href="#animation-direction" class="headerlink" title="animation-direction"></a>animation-direction</h2><p>direction [dɪˈrɛkʃən] 方向<br>属性定义是否循环交替反向播放动画<br>注意：如果动画被设置为只播放一次，该属性将不起作用。</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">值</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">normal</td>
-<td>正常播放</td>
-</tr>
-<tr>
-<td style="text-align:left">reverse[rɪˈvɜ:rs]</td>
-<td>反方向播放</td>
-</tr>
-<tr>
-<td style="text-align:left">alternate[ˈɔ:ltərnət]</td>
-<td>奇数正向播放，偶数反向播放</td>
-</tr>
-<tr>
-<td style="text-align:left">alternate-reverse</td>
-<td>奇数反向播放，偶数正向播放</td>
-</tr>
-<tr>
-<td style="text-align:left">initial</td>
-<td>默认值</td>
-</tr>
-<tr>
-<td style="text-align:left">inherit</td>
-<td>继承父级</td>
-</tr>
-</tbody>
-</table>
-<h2 id="animation-fill-mode"><a href="#animation-fill-mode" class="headerlink" title="animation-fill-mode"></a>animation-fill-mode</h2><p>fill [fɪl] （使）充满<br>mode  [moʊd] 方式; 状况; 时尚，风尚; 调式;</p>
-<p>规定当动画不播放时（当动画完成时，或当动画有一个延迟未开始播放时），要应用到元素的样式。</p>
-<p>默认情况下，CSS 动画在第一个关键帧播放完之前不会影响元素，在最后一个关键帧完成后停止影响元素。animation-fill-mode 属性可重写该行为。
-　</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">值</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">none</td>
-<td>默认值 什么都不发生</td>
-</tr>
-<tr>
-<td style="text-align:left">forwards[ˈfɔrwədz]</td>
-<td>在动画结束后（由 animation-iteration-count 决定）[ˌɪtəˈreʃən]动画将应用该属性值。</td>
-</tr>
-<tr>
-<td style="text-align:left">backwards[ˈbækwərdz]</td>
-<td>动画将应用在 animation-delay 定义期间启动动画的第一次迭代的关键帧中定义的属性值。这些都是 from 关键帧中的值（当 animation-direction 为 “normal” 或 “alternate” 时）或 to 关键帧中的值（当 animation-direction 为 “reverse” 或 “alternate-reverse” 时）。</td>
-</tr>
-<tr>
-<td style="text-align:left">both</td>
-<td>动画遵循 forwards 和 backwards 的规则。也就是说，动画会在两个方向上扩展动画属性。</td>
-</tr>
-<tr>
-<td style="text-align:left">initial</td>
-<td>设置该属性为它的默认值</td>
-</tr>
-<tr>
-<td style="text-align:left">inherit</td>
-<td>从父元素继承该属性</td>
-</tr>
-</tbody>
-</table>
-<h2 id="animation-play-state"><a href="#animation-play-state" class="headerlink" title="animation-play-state"></a>animation-play-state</h2><p>指定动画是否正在运行或已暂停<br>| 值      |     描述 |<br>| :——– | ——–|<br>| paused[pɔzd]|   指定暂停动画 |<br>|running[ˈrʌnɪŋ]|指定正在运行的动画|</p>
-<p>总结一下 ：<br>第一个值是动画名<br>第二个值是持续时间<br>第三个值是运动方式<br>第四个值是延迟时间<br>第五个值是执行次数<br>第六个值是循环方式（可不写）<br>第七个值是动画最后的状态（可不写）</p>
-<p>给元素添加动画效果<br>第一步 定义一个动画 从开始到结束<br>第二步 给一个元素添加上这个动画，并且定义这个动画的一些属性，例如时间，运动方式，执行次数….</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/04/25/动画 animation/" data-id="cj1xfzk3a00046kvclrqvqtl0" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -1204,23 +1449,23 @@ div{height:100px;}
       <ul>
         
           <li>
-            <a href="/2017/04/25/css笔记/面试/面试题：/">(no title)</a>
+            <a href="/2017/04/26/服务器使用方法/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2017/04/25/css笔记/第七天/第七天笔记/">(no title)</a>
+            <a href="/2017/04/26/第六天笔记/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/26/第七天笔记/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/26/css选择器2/">(no title)</a>
           </li>
         
           <li>
             <a href="/2017/04/25/第四天笔记/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2017/04/25/第十五天/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2017/04/25/第五天/">(no title)</a>
           </li>
         
       </ul>
