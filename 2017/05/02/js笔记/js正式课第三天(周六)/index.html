@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="##js正式课第三天(周六)[TOC] #####自定义属性  一般都是给某些元素增加一个自己起的属性名（不是内置属性），来存储一些值的；只要是引用数据类型都可以加自定义属性（包括函数）； #####引用数据类型的赋值过程1 .浏览器先看是什么数据类型，是对象的话浏览器给他开辟一个堆内存；  把所有的 键值对（属性名：属性值）放到这个堆内存里，如果属性值时变量放的是变量所代表的值； 把这个地址赋给">
+<meta name="keywords">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2017/05/02/js笔记/js正式课第三天(周六)/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="##js正式课第三天(周六)[TOC] #####自定义属性  一般都是给某些元素增加一个自己起的属性名（不是内置属性），来存储一些值的；只要是引用数据类型都可以加自定义属性（包括函数）； #####引用数据类型的赋值过程1 .浏览器先看是什么数据类型，是对象的话浏览器给他开辟一个堆内存；  把所有的 键值对（属性名：属性值）放到这个堆内存里，如果属性值时变量放的是变量所代表的值； 把这个地址赋给">
+<meta property="og:updated_time" content="2017-05-01T07:12:59.979Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="##js正式课第三天(周六)[TOC] #####自定义属性  一般都是给某些元素增加一个自己起的属性名（不是内置属性），来存储一些值的；只要是引用数据类型都可以加自定义属性（包括函数）； #####引用数据类型的赋值过程1 .浏览器先看是什么数据类型，是对象的话浏览器给他开辟一个堆内存；  把所有的 键值对（属性名：属性值）放到这个堆内存里，如果属性值时变量放的是变量所代表的值； 把这个地址赋给">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-js笔记/js正式课第三天(周六)" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/05/02/js笔记/js正式课第三天(周六)/" class="article-date">
+  <time datetime="2017-05-02T09:52:12.071Z" itemprop="datePublished">2017-05-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##js正式课第三天(周六)<br>[TOC]</p>
+<p>#####自定义属性</p>
+<blockquote>
+<p>一般都是给某些元素增加一个自己起的属性名（不是内置属性），来存储一些值的；只要是引用数据类型都可以加自定义属性（包括函数）；</p>
+<p>#####引用数据类型的赋值过程<br>1 .浏览器先看是什么数据类型，是对象的话浏览器给他开辟一个堆内存；</p>
+<ol>
+<li>把所有的 键值对（属性名：属性值）放到这个堆内存里，如果属性值时变量放的是变量所代表的值；</li>
+<li>把这个地址赋给对象<br>#####函数的赋值过程</li>
+<li>浏览器看他是什么数据类型，是函数的话，给他开辟一个堆内存；</li>
+<li>将函数作为字符串存起来；</li>
+<li>将地址赋给函数名；</li>
+<li>如果把函数当参数传进去只写定义部分不执行<br>#####预解释<br>注意：在全局中，声明的时候就相当于给window增加一个属性；<br>不管是全局还是私有的情况，如果代码执行遇到一个变量，这个变量是没有声明过的变量也相当于给window增加一个属性；<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">1.预解释：声明s=undefined，声明定义function d（）</div><div class="line">console.log(d);//此时输出function d()&#123;console.log(1)&#125;</div><div class="line">d=1;//给d赋值d=1，此时d已经改变不是函数</div><div class="line">var s=d//s=d也就是s=1；</div><div class="line">function d()&#123;</div><div class="line">  console.log(1)</div><div class="line">&#125;</div><div class="line">d()://报错d is not a function;</div><div class="line">var a=1,b=1,c=1;//相当于var了3次</div><div class="line">var a=1;b=1;c=1;//相当于只var了a；</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<p>#####预解释的特殊情况</p>
+<blockquote>
+<p>1.预解释的首行遇到变量名相同的情况，变量名已被声明过了不需要重新声明但是需要重新定义，一般注意var的变量名和function变量名相同的情况；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&gt; s=s()//s现在是函数，也就地址</div><div class="line">&gt; var s=0//此时s已赋值s=0</div><div class="line">&gt; function  s()&#123;</div><div class="line">&gt;    return s //返回函数身</div><div class="line">&gt;  &#125;</div><div class="line">&gt;  s();//此时s已不是函数报错</div><div class="line">&gt;</div></pre></td></tr></table></figure></p>
+<p>2.等号右边的不预解释<br>3.return出来的内容执行但不预解释，return后面的内容不执行但预解释；<br>4.自执行函数不进行预解释；<br>5.函数作为参数的时候也不进行预解释；<br>6.条件中，不管条件是否成立{}里面的代码都会预解释，但是要注意function只声明不定义，如果遇到变量名相同会报错；如果条件成立先给函数赋值在执行代码；<br>变量只声明就是undefined如var a=1声名后a=undefined，赋值后才是a=1；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&gt;if(&quot;a&quot;in window)&#123;</div><div class="line">&gt;    var a=1;//此时就会报错&apos;a&apos; has already been decleared (a 已被声明过了)</div><div class="line">&gt;    function a()&#123; </div><div class="line">&gt;    &#125;</div><div class="line">&gt;&#125;</div><div class="line">&gt;</div></pre></td></tr></table></figure></p>
+</blockquote>
+<p>#####内存（两种）</p>
+<blockquote>
+<p>堆内存：来存储东西的，一般存储引用数据类型；<br>栈内存：代码执行空间，也就是作用域：</p>
+<ul>
+<li>作用域（两种）：</li>
+<li>全局作用域：一打开浏览器就会形成；</li>
+<li>私有作用域：函数执行形成的作用域；</li>
+</ul>
+<p>函数执行的时候：<br>1.函数一执行，形成一个私有作用域<br>2.有形参的换先给形参赋值；<br>3.预解释；<br>4.代码执行；</p>
+<p>#####私有变量（两种）记住只能自己使用别人获取不到也就是闭包机制；<br>1.形参；<br>2.在私有作用域声名过的变量，var过的和function过的；</p>
+<p>#####查找上一级作用域<br>看当前作用域对应的堆内存是在哪个作用域下定义的，那个作用域就是他的上一级；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var d=1</div><div class="line">function F1()&#123;</div><div class="line">  var d=0</div><div class="line">  function f1()&#123;</div><div class="line">  d++</div><div class="line">  console.log(d)</div><div class="line">&#125;</div><div class="line">return f1</div><div class="line">&#125;</div><div class="line">var f1=F1();</div><div class="line">console.log (f1());//f1的上一级作用域就是F1；</div></pre></td></tr></table></figure></p>
+<p>当遇到变量的时候，先看是不是自己的私有变量，如果是就是私有的，不是往上一级作用域去找，没有继续找。一直找到全局下在没有就报错了；</p>
+<p>#####return 后面函数预解释问题<br>return出来的内容不进行预解释，但是如果return出来的是一个有名函数，在这个函数执行的时候，先预解释这个函数名，而且还是私有的；</p>
+<p>#####内存的销毁机制<br>由于函数的定义或者执行会形成堆内存和栈内存，浏览器会找机会清除一些没有被占用的内存。<br>主要来看我们的栈内存（作用域）：<br>全局作用域：浏览器关闭就会销毁；<br>私有作用域：<br>1.函数执行完对其他东西没有影响和关系，那他就销毁。<br>2.如果一个函数执行后返回一个引用数据类型（函数，对象）被外界占用了，那么他就符合不销毁的条件；（比如给一个元素绑定事件的时候；）<br>3.如果一个函数执行完返回一个函数，之后立马执行，前一个函数暂时不销毁后面执行完之后浏览器才会抽时间销毁；<br>对于不销毁的作用域，它里面的私有变量就不行销毁；所以我们可以利用这个特点来存储一些我们想要的值，比如选项卡中存储索引；</p>
+<p>#####this<br>1.函数执行的时候看前面有没有点，没有就是window，有点前面就是this；<br>2.自执行函数也是Window；<br>3.函数作为参数的是this也是window；<br>4.元素绑定事件，给谁绑定的谁就是this；</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/05/02/js笔记/js正式课第三天(周六)/" data-id="cj27dljan0000lkvc8ztxti3e" class="article-share-link">Partager</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/05/02/js笔记/js正式课第二周第一天/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Récent</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/05/02/js笔记/正式课第一天/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Ancien</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Articles récents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/05/02/js笔记/正式课第一天/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/02/js笔记/js正式课第三天(周六)/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/02/js笔记/js正式课第二周第一天/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/02/js笔记/js正式课第二天/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/26/服务器使用方法/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

@@ -48,9 +48,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -60,6 +60,286 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-js笔记/正式课第一天" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/05/02/js笔记/正式课第一天/" class="article-date">
+  <time datetime="2017-05-02T09:52:12.094Z" itemprop="datePublished">2017-05-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##正式课第一天<br>[TOC]</p>
+<p>####闭包</p>
+<blockquote>
+<p>1.函数执行的时候会形成一个私有作用域，来保护里面的私有变量不受外界干扰；<br>   私有作用域是一种机制；</p>
+<p>####函数执行的步骤</p>
+<ul>
+<li>1.形成私有作用域</li>
+<li>2.给形参赋值</li>
+<li>3.预解释</li>
+<li>4.函数体执行<br>####作用域链<br>#####在私有作用域下遇到变量先看是不是自己私有变量（两种var和function），是的话就是私有，不是的话就往上一级找，如果还没有继续找，直到找到全局为止，还是没有就报错了，这种查找机制叫做作用域链，私有作用域下的私有变量外界访问不到，但是可以获取到外界的变量；<br>####查找上一级作用域<br>看当前这个函数对应的堆内存在哪个作用域下定义的，那么他的上一级就是这个作用域，跟在哪里执行没关系；<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var num=1;</div><div class="line">function fn()&#123;</div><div class="line">var num=10;</div><div class="line">function ff()&#123;</div><div class="line">console.log(sum)//sum=10，找ff所在的上一级；</div><div class="line">&#125;</div><div class="line">return ff</div><div class="line">&#125;</div><div class="line">var ff=fn();</div><div class="line">console.log(ff());//ff没有return 所以是输出undefined；</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<p>####内存的销毁机制</p>
+<p>#####堆内存：只要这个堆内存没有被任何变量或属性占用它，浏览器就会主动销毁；其他的要手动销毁，（在做项目时候遇到一个对象以后不用了，手动清空一下，obj=null）；</p>
+<p>#####栈内存（作用域）：</p>
+<blockquote>
+<p>全局作用域：关闭浏览器的时候就销毁了，做项目的时候尽量避免全局变量的使用；<br>私有作用域：相同的函数每一次执行都会形成一个私有作用域，作用域之间没有任何关系；那么他是怎么销毁的呢；</p>
+<ul>
+<li>1.立即销毁 函数没有返回值或者返回值得内容没有被占用，浏览器就会把它销毁了；</li>
+<li>2.暂时不销毁：函数返回了一个函数，这个返回的函数接着执行了，完了之后浏览器会抽时间销毁，（什么时候销毁每个浏览器的机制不一样）</li>
+<li>3.不销毁：函数执行返回一个地址，这个地址一直被占用着；<br>作用域不销毁这个概念主要是用在给元素绑定事件的时候<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function  fn1()&#123;</div><div class="line">    console.log(&quot;销毁&quot;)</div><div class="line">&#125;</div><div class="line">fn1();//这个函数执行完后对后面没什么影响就销毁了</div><div class="line">var box=document.getElementById(&quot;box&quot;)</div><div class="line">box.onclick=function ()&#123;</div><div class="line">&#125;;//此时不销毁</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<p>####this</p>
+<ul>
+<li>执行的主体，谁来执行的</li>
+<li>注意上下文；</li>
+<li>全局作用域下this就是window<br>#####私有作用域下的this<blockquote>
+<p>1.自执行函数中的this永远是window</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">(function ()&#123;</div><div class="line">   console.log(this)//此时this就是window</div><div class="line">&#125;)();</div></pre></td></tr></table></figure>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>2.给元素绑定事件的时候给谁绑定的，this就是谁；<br>3.函数执行的时候看前面有没有点，有点的话前面是谁this就是谁，没有点this就是window；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">name=&quot;天线宝宝&quot;</div><div class="line">function()&#123;</div><div class="line">  console.log(this.name)//thisz此时代表window；</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>4.函数作为参数的时候this是Windows，比如定时器，数组中sort排序中的函数，</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/05/02/js笔记/正式课第一天/" data-id="cj27dljaz0002lkvc80aslo2p" class="article-share-link">Partager</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-js笔记/js正式课第三天(周六)" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/05/02/js笔记/js正式课第三天(周六)/" class="article-date">
+  <time datetime="2017-05-02T09:52:12.071Z" itemprop="datePublished">2017-05-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##js正式课第三天(周六)<br>[TOC]</p>
+<p>#####自定义属性</p>
+<blockquote>
+<p>一般都是给某些元素增加一个自己起的属性名（不是内置属性），来存储一些值的；只要是引用数据类型都可以加自定义属性（包括函数）；</p>
+<p>#####引用数据类型的赋值过程<br>1 .浏览器先看是什么数据类型，是对象的话浏览器给他开辟一个堆内存；</p>
+<ol>
+<li>把所有的 键值对（属性名：属性值）放到这个堆内存里，如果属性值时变量放的是变量所代表的值；</li>
+<li>把这个地址赋给对象<br>#####函数的赋值过程</li>
+<li>浏览器看他是什么数据类型，是函数的话，给他开辟一个堆内存；</li>
+<li>将函数作为字符串存起来；</li>
+<li>将地址赋给函数名；</li>
+<li>如果把函数当参数传进去只写定义部分不执行<br>#####预解释<br>注意：在全局中，声明的时候就相当于给window增加一个属性；<br>不管是全局还是私有的情况，如果代码执行遇到一个变量，这个变量是没有声明过的变量也相当于给window增加一个属性；<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">1.预解释：声明s=undefined，声明定义function d（）</div><div class="line">console.log(d);//此时输出function d()&#123;console.log(1)&#125;</div><div class="line">d=1;//给d赋值d=1，此时d已经改变不是函数</div><div class="line">var s=d//s=d也就是s=1；</div><div class="line">function d()&#123;</div><div class="line">  console.log(1)</div><div class="line">&#125;</div><div class="line">d()://报错d is not a function;</div><div class="line">var a=1,b=1,c=1;//相当于var了3次</div><div class="line">var a=1;b=1;c=1;//相当于只var了a；</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<p>#####预解释的特殊情况</p>
+<blockquote>
+<p>1.预解释的首行遇到变量名相同的情况，变量名已被声明过了不需要重新声明但是需要重新定义，一般注意var的变量名和function变量名相同的情况；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&gt; s=s()//s现在是函数，也就地址</div><div class="line">&gt; var s=0//此时s已赋值s=0</div><div class="line">&gt; function  s()&#123;</div><div class="line">&gt;    return s //返回函数身</div><div class="line">&gt;  &#125;</div><div class="line">&gt;  s();//此时s已不是函数报错</div><div class="line">&gt;</div></pre></td></tr></table></figure></p>
+<p>2.等号右边的不预解释<br>3.return出来的内容执行但不预解释，return后面的内容不执行但预解释；<br>4.自执行函数不进行预解释；<br>5.函数作为参数的时候也不进行预解释；<br>6.条件中，不管条件是否成立{}里面的代码都会预解释，但是要注意function只声明不定义，如果遇到变量名相同会报错；如果条件成立先给函数赋值在执行代码；<br>变量只声明就是undefined如var a=1声名后a=undefined，赋值后才是a=1；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&gt;if(&quot;a&quot;in window)&#123;</div><div class="line">&gt;    var a=1;//此时就会报错&apos;a&apos; has already been decleared (a 已被声明过了)</div><div class="line">&gt;    function a()&#123; </div><div class="line">&gt;    &#125;</div><div class="line">&gt;&#125;</div><div class="line">&gt;</div></pre></td></tr></table></figure></p>
+</blockquote>
+<p>#####内存（两种）</p>
+<blockquote>
+<p>堆内存：来存储东西的，一般存储引用数据类型；<br>栈内存：代码执行空间，也就是作用域：</p>
+<ul>
+<li>作用域（两种）：</li>
+<li>全局作用域：一打开浏览器就会形成；</li>
+<li>私有作用域：函数执行形成的作用域；</li>
+</ul>
+<p>函数执行的时候：<br>1.函数一执行，形成一个私有作用域<br>2.有形参的换先给形参赋值；<br>3.预解释；<br>4.代码执行；</p>
+<p>#####私有变量（两种）记住只能自己使用别人获取不到也就是闭包机制；<br>1.形参；<br>2.在私有作用域声名过的变量，var过的和function过的；</p>
+<p>#####查找上一级作用域<br>看当前作用域对应的堆内存是在哪个作用域下定义的，那个作用域就是他的上一级；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var d=1</div><div class="line">function F1()&#123;</div><div class="line">  var d=0</div><div class="line">  function f1()&#123;</div><div class="line">  d++</div><div class="line">  console.log(d)</div><div class="line">&#125;</div><div class="line">return f1</div><div class="line">&#125;</div><div class="line">var f1=F1();</div><div class="line">console.log (f1());//f1的上一级作用域就是F1；</div></pre></td></tr></table></figure></p>
+<p>当遇到变量的时候，先看是不是自己的私有变量，如果是就是私有的，不是往上一级作用域去找，没有继续找。一直找到全局下在没有就报错了；</p>
+<p>#####return 后面函数预解释问题<br>return出来的内容不进行预解释，但是如果return出来的是一个有名函数，在这个函数执行的时候，先预解释这个函数名，而且还是私有的；</p>
+<p>#####内存的销毁机制<br>由于函数的定义或者执行会形成堆内存和栈内存，浏览器会找机会清除一些没有被占用的内存。<br>主要来看我们的栈内存（作用域）：<br>全局作用域：浏览器关闭就会销毁；<br>私有作用域：<br>1.函数执行完对其他东西没有影响和关系，那他就销毁。<br>2.如果一个函数执行后返回一个引用数据类型（函数，对象）被外界占用了，那么他就符合不销毁的条件；（比如给一个元素绑定事件的时候；）<br>3.如果一个函数执行完返回一个函数，之后立马执行，前一个函数暂时不销毁后面执行完之后浏览器才会抽时间销毁；<br>对于不销毁的作用域，它里面的私有变量就不行销毁；所以我们可以利用这个特点来存储一些我们想要的值，比如选项卡中存储索引；</p>
+<p>#####this<br>1.函数执行的时候看前面有没有点，没有就是window，有点前面就是this；<br>2.自执行函数也是Window；<br>3.函数作为参数的是this也是window；<br>4.元素绑定事件，给谁绑定的谁就是this；</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/05/02/js笔记/js正式课第三天(周六)/" data-id="cj27dljan0000lkvc8ztxti3e" class="article-share-link">Partager</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-js笔记/js正式课第二周第一天" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/05/02/js笔记/js正式课第二周第一天/" class="article-date">
+  <time datetime="2017-05-02T09:52:12.048Z" itemprop="datePublished">2017-05-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##js正式课第二周第一天<br>[TOC]</p>
+<p>#####for in循环</p>
+<blockquote>
+<p>for in循环在遍历的时候默认的话把自己私有的和在他所有类原型是扩展的属性和方法都可以遍历到，但是一般情况下我们只需要遍历私有的即可，我们可使用一下方法的判断处理：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">for (var key in obj)&#123;</div><div class="line">   if(obj.propertyEnumerable(key))&#123;console.log(key)&#125;</div><div class="line"> 或者</div><div class="line"> if(obj.hasOwnProperty(key))&#123;</div><div class="line"> console.log(key)&#125;//常用</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>所以以后用for in的时候要写用于值遍历私有的可枚举的；</p>
+<p>#####Object.create(proObj) 创建一个新的对象，但还要把proObj作为这个对象的原型；（IE6-8不兼容）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var obj=&#123;s:2&#125;</div><div class="line">var obj2=Object.create(obj)</div><div class="line">//等于把obj作为了obj2的原型；</div></pre></td></tr></table></figure></p>
+</blockquote>
+<p>#####call方法（低版本IE不支持）：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">console.log(Function.prototype.call.length)</div><div class="line">函数原型上的call方法是一个函数，这个方法至少要传一个参数，这个参数是用来改变call前面的方法的this的；</div></pre></td></tr></table></figure></p>
+<blockquote>
+<ol>
+<li>call的两个作用：1，改变this；2，让当前函数执行；<br>非严格模式；<br>fn.call(obj):1,将fn中的this变成obj。2.让fn执行；<br>在非严格模式下，不传参数或者传了null，undefined，默认this就window;<br>call方法从第二个参数开始就是给前面的函数传的参数；fn.call(obj,1,2);<br>2.当使用函数.call.call(),两个及连个以上的call，最后一个call的第一个参数是用来改变前面call方法的this的，那么this（）就变成了第一个参数执行，所以第一个参数必须是函数否则会报错；<br>call:记住三句话1.改变前面方法的this，不管前面有多少东西；2. 让前面方法执行，不管前面有多长；  3. call方法最终执行的核心是this（）；<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">function fn()&#123;console.log(this)&#125;;</div><div class="line">fn();</div><div class="line">fn.call.call(obj)//报错obj is not a function;</div><div class="line">所两call及以上要传函数；</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>“use strict”严格模式：<br>1.执行函数的时候，前面没有点，this就是undefined；<br>2.不传参数或者传了undefined或null，this就等于null或undefined；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">&quot;use strict&quot;//严格模式</div><div class="line">function fn()&#123;console.log(this)&#125;;</div><div class="line">fn();</div><div class="line">fn.call()//this=undefined;</div><div class="line">fn.call(undefined)//this=undefined;</div><div class="line">fn.call(null)//this=null</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
+</blockquote>
+<p>#####length:</p>
+<blockquote>
+<p>所有的函数都有一个属性叫length，表示的是参数的数量（长度）；</p>
+<p>#####try{}catch(e) 浏览器隐藏自己的错误;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">try&#123;</div><div class="line">//先执行try里面的代码，如果报错了就执行catch里面的代码；</div><div class="line">&#125;catch(e)&#123;</div><div class="line">//e是一个对象，里面存着错误信息，存在e.message,这里面存着try里面的错误信息</div><div class="line">     //throw new Error（&quot;我错了&quot;）</div><div class="line">  &#125;</div><div class="line"> //call将类数组转为数组；</div><div class="line">    function toArray(likeArray) &#123;</div><div class="line">        //call在低版本IE下不支持</div><div class="line">        var ary = [];</div><div class="line">        try &#123;</div><div class="line">            //return ary.__proto__.slice.call(likeArray)</div><div class="line">            return Array.prototype.slice.call(likeArray, 0);</div><div class="line">        &#125;</div><div class="line">        catch (e) &#123;</div><div class="line">            console.log(e.message);</div><div class="line">            for (var i = 0; i &lt; likeArray.length; i++) &#123;</div><div class="line">                ary.push(likeArray[i])</div><div class="line">            &#125;</div><div class="line">            return ary</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    function fn() &#123;return toArray(arguments)&#125;</div><div class="line">    console.log(fn(1, 2, 3, 5, 6, 7, 10));</div></pre></td></tr></table></figure></p>
+</blockquote>
+<p>#####apply;(Function.prototype.apply)</p>
+<blockquote>
+<p>apply 跟call意思和用法一样，区别是：apply的一个参数也是改变this用的，第二个参数是一个数组，这个数组是给前面的方法传参数的，将数组里面的每一项一个一个传给函数；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">// 非严格模式</div><div class="line"> function fn(x,y) &#123;</div><div class="line">        this.x=x+y;</div><div class="line">        this.y=x-y;</div><div class="line">        console.log(this.x,this.y,x,y)</div><div class="line">    &#125;</div><div class="line">    fn(1,2);//this-&gt;window</div><div class="line">    fn.call(null,1,2);//this-&gt;null</div><div class="line">    var ary=[1,2];</div><div class="line">    fn.apply(undefined,ary)；//this-&gt;undefined</div></pre></td></tr></table></figure></p>
+</blockquote>
+<p>#####bind(低版本IE不兼容)</p>
+<blockquote>
+<p>bind只改变函数中的this，返回一个新的函数，原来的函数不变，不让函数执行bind以后再事件中常用我们会写一个兼容模式；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var a=2</div><div class="line">function fn()&#123;</div><div class="line">  console.log(this.a)</div><div class="line">&#125;</div><div class="line">var obj=&#123;a:1&#125;</div><div class="line">fn()//this是window；输出2</div><div class="line">fn.bind(obj)//没有()不执行执行的话要手动执行;如果执行输出1；</div><div class="line">//bind 执行过程=克隆了一个新函数,和var fn1=fn.bind(obj)一样函数里面的this变成obj；</div><div class="line">//如果要执行也可以写成fn1();</div></pre></td></tr></table></figure></p>
+</blockquote>
+<p>#####数据类型检测</p>
+<p>######typeOf</p>
+<blockquote>
+<p>能够详细检测基本数据类型，返回值是一个字符串，如果两及两个以上的typeOf检测的话返回值是“string”，但是null检测出来是object，对于引用数据类型不能详细检测只有object和function；</p>
+<p>######instanceOf<br>检测一个实例是否属于某个类，因为每一种数据类型都对应自己所属的类，所以我们可以通过他来检测数据类型，但是有局限性，对于基本数据类型 用字面量创建方式创建出来的变量检测不出来，构造函数方式可以，引用数据类型可以详细检测；</p>
+<p>######类原型上的constructor；<br>每个类原型（prototype）上都有一个constructor属性，他指向类本省，那么一个具体的数据类型的实例.constructor; 比如:’11’.constructor-&gt;’11’.<strong>proto</strong> -&gt;string.prototype,string原型上有constructor指向string本身，你也可以通过他的neme来得到string类名，也就是他的数据类型</p>
+<p>#####对象的Object类的原型上有一个toString方法:<br>他可以检测数据类型，那么我们就调用Object.prototype.toString()这个方法，用call方法将里面的this改变成我们想检测的那个数据，会得到[object   数据类型]；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">//toString</div><div class="line"> console.dir(Object.prototype);</div><div class="line"> console.log((&#123;1: 1&#125;).toString());</div><div class="line"> var str=&quot;11&quot;;</div><div class="line"> var number=1;</div><div class="line"> var ary=[1];</div><div class="line"> var time=new Date();</div><div class="line"> console.log(Object.prototype.toString.call(str));</div><div class="line"> console.log(Object.prototype.toString.call(number));</div><div class="line"> console.log(Object.prototype.toString.call(ary));</div><div class="line"> console.log(Object.prototype.toString.call(time));</div><div class="line"> var s=Object.prototype.toString.call(time);</div><div class="line"> console.log(typeof s);</div><div class="line"> //&apos;[object Date]&apos;</div><div class="line"> //console.log(s.split(&quot; &quot;)[1].replace(&quot;]&quot;,&quot;&quot;));</div><div class="line"> console.log(s.substring(8, s.length - 1),s);</div></pre></td></tr></table></figure></p>
+</blockquote>
+<p>####JSON（是一个格式）；</p>
+<blockquote>
+<p>1.JSON是个对象，是window下的一个属性，也可以理解为是一个全局变量，在低版本的IE下没有；<br>JNOS和普通对象的区别：<br>1.对象的属性名用双引号包起来；<br>2.属性值如果是字符串的话也得用双引号包起来；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"> var jsonObj=&#123;&quot;a&quot;:&quot;a&quot;,&quot;1&quot;:1,&quot;age&quot;=12&#125;</div><div class="line"> //json字符串，一般从后台获取回来的数据都是json字符串；</div><div class="line"> var jsonStr=&apos;&#123;&quot;a&quot;:&quot;a&quot;,&quot;1&quot;:1,&quot;age&quot;=12&#125;&apos;;</div><div class="line"> //JSON.parse()将JSON格式的字符串转为JSON格式的对象；</div><div class="line"> JSON.parse(jsonStr);</div><div class="line">  //JSON.stringfy()将JSON格式的对象转为JSON格式的字符串；</div><div class="line"> JSON.stringfy(jsonStr);</div><div class="line"> </div><div class="line">//在IE没有JSON就用eval来实现；</div><div class="line">function jsonParse(jsonStr)&#123;</div><div class="line">  //如果有就用JSON.parse;</div><div class="line">  try&#123;return JSON.parse(jsonStr)&#125;</div><div class="line">  //如果没有就用eval；</div><div class="line">  catch(e)&#123;renturn eval(&quot;(&quot;+jsonSrr+&quot;)&quot;)&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">function jsonParse(jsonStr)&#123;</div><div class="line"> return &quot;JSON&quot; in window</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+</blockquote>
+<p>#####DOM映射；</p>
+<blockquote>
+<p>通过DOM获取的元素集合（类数组），仍然和页面的元素保持着联系，并且这个元素集合会随着页面元素的增加而增加，减少而减少；即使将这个结合（类数组）转为一个数组之后，每个元素仍然和页面有联系这就叫做DOM映射；</p>
+<p>#####回流<br>值元素的位置发生改变（比如增加元素，删除元素，移动）就会引起回流，让整个页面重新加载一遍，从而造成性能的浪费；</p>
+<p>#####重绘<br>元素的样式改变就会把当前的这个元素重新渲染一遍；所以在以后的项目中，能用重绘代替就不用回流，能用一次回流就不要使用多次；</p>
+</blockquote>
+<p>#####向页面增加元素的方式：</p>
+<blockquote>
+<p>1.动态创建的方式: document.createElement, 然后一个一个appendChild, 会造成多次回流，这样不好，但是他有个好处就是不会改变原来的元素（比如不会影响他之前绑定的事件）<br>2.通过拼接字符串，最后在一次性通过innerHTML ,这样只引起一次回流，比较好，但是他会改变原来的元素（比如会影响他之前绑定的事件）；<br>3.文档碎片，他就是一个容器专门来盛放DOM元素的；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var flg=document.createDocumentFragement();//文档碎片；</div><div class="line">    flg=null//用完后就清空；</div></pre></td></tr></table></figure></p>
+<p>文档碎片步骤<br>1.先创建元素,var oli=document.createElement(“li”);<br>2.按需求给元素增加一些需要的属性；<br>3暂时存放在flg（DOM碎片）中，也就是appendChild进去的；<br>4.循环完之后，把整个flg放到ul中，news.appendChild(flg):这样就只回流一次；（news是ul的id）；</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/05/02/js笔记/js正式课第二周第一天/" data-id="cj27dljax0001lkvcnm93u91u" class="article-share-link">Partager</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-js笔记/js正式课第二天" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/05/02/js笔记/js正式课第二天/" class="article-date">
+  <time datetime="2017-05-02T09:52:12.024Z" itemprop="datePublished">2017-05-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#js正式课第二天<br> [TOC]</p>
+<p>#####面向对象</p>
+<blockquote>
+<p>面向对象开发也是面向类的开发；<br>【内置类】：<br> 每一种数据类型都有自己所属的类：Number,String,Boolean,Null Undefined ,Object,  Array,Date,RegExp,Function(注意：Math不是类)；<br> 每一个元素也有自己的类<br> 【注意】：Object是所有类的基类，js中万物接对象，而且所有的类都是函数；<br> 【自定义类】：函数</p>
+<p>####在js中我们大体分为两种一种是【内置类】，一种是【自定义类】；</p>
+<p>#####【内置类】<br>每一个数据类型都是一个类，Number，String，Boolean，Null，Array，Object，Date，等等。（注意：Math不是一个类）。<br>元素都有自己的内置类；</p>
+<p>#####命名空间<br>在之前obj1，obj2就是一个简单的对象名，在这里我们叫命名空间；</p>
+<p>#####模块化开发</p>
+<p>######单例模式：（就是一个对象保障变量名不冲突）<br>将一个完整的项目分模块，多个人共同开发，每个人分模块写在一个对象里面，就是单例模式；<br>注意：单例模式就是一个对象，单例模式函数之间可以用this互相调用，this就是那个单例模式的对象</p>
+<p>######工厂模式：<br>把实现相同功能的方法封装成一个函数，以后再想实现这个功能就不用重写代码了，直接执行函数，通过参数来得到具体的实例；（好处：低耦合高内聚，就是减少页面代码的冗余，提高代码利用率）这种方法不常用；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&gt; var girlFriend0=&#123;name:&quot;刘嘉玲&quot;,age:46&#125;;</div><div class="line">    var girlFriend1=&#123;name:&quot;刘亦菲&quot;,age:36&#125;;</div><div class="line">    var girlFriend2=&#123;name:&quot;刘诗诗&quot;,age:26&#125;;</div><div class="line">    function getObj(name,age) &#123;</div><div class="line">        var obj=&#123;&#125;;</div><div class="line">        obj.name=name;</div><div class="line">        obj.age=age;</div><div class="line">        return obj</div><div class="line">    &#125;</div><div class="line">    console.log(getObj(&quot;秀秀&quot;, 20));</div><div class="line">    console.log(getObj(&quot;赵四&quot;, 40));</div><div class="line">    console.log(getObj(&quot;赵启慧&quot;, 19));</div><div class="line">&gt;</div></pre></td></tr></table></figure></p>
+</blockquote>
+<p>#####函数只有重写没有重载，函数名相同后面的覆盖前面的函数</p>
+<blockquote>
+<p>重载是根据参数不同去选择性的执行某个函数；</p>
+<p>#####构造函数模式：<br>构造一个类，因为类是函数数据类型的，所以我通过写一个函数来表示一个【自定义类】<br>怎么让他表示一个类？<br>1.最好首字母大写；</p>
+<ol>
+<li>通过new这个关键词来创造一个变量，这个变量叫做实例-&gt;var 实例=new 类；<br>3.通过this 给他的实例增加属性名和属性值；<br>#####new一个类的具体实例的运行步骤<br>1.预解释<br>2.自动生成一个this（代表当前实例），通过this给实例增加属性名，属性值<br>3.默认将创建好的实例this返回，不需要return；（如果写了return：1，return了基本数据类型不受影响。2，return了引用数据类型return啥返回啥；</li>
+</ol>
+</blockquote>
+<p>#####函数（三重身份）（new构造函数创建方式函数名尽量用大写和普通函数区分）（this）</p>
+<blockquote>
+<p> 1.普通的函数，就代表一个方法</p>
+<ol>
+<li>它也是一个 类 自定义类</li>
+<li>它也是Function类的一个实例</li>
+</ol>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div></pre></td><td class="code"><pre><div class="line">var obj1=new Fn（）；</div><div class="line">new就是构造函数的创建方式，Fn函数就是一个类，obj1就是Fn类的一个实例</div><div class="line">Fn（）创建过程：</div><div class="line">1.形成一个私有作用域</div><div class="line">2.预解释</div><div class="line">3.自动创建一个实例this</div><div class="line">4.代码执行的时候通过this给实例增加私有属性，并赋值；</div><div class="line">5.会默认返回当前的这个实例this</div><div class="line">注意：1.通过this给实例增加的是私有属性，每个实例之间的私有属性是私有的不一样的；</div><div class="line">     2.不用写return直接返回this，如果你写了，写的是基本数据类型的没有影响，如果你写的是引用数据类型的就会把this修改了，写的啥返回啥；</div><div class="line">     3.var obj=new Fn();等于var obj=new Fn;Fn后面加不加括号第一样；</div><div class="line"></div><div class="line"></div><div class="line">        function fn() &#123;</div><div class="line">       var obj=&#123;&#125;;</div><div class="line">       obj.name=&quot;aa&quot;;</div><div class="line">       obj.age=12;</div><div class="line">       return obj</div><div class="line">    &#125;</div><div class="line">    var obj=fn();</div><div class="line">    function Fn() &#123;</div><div class="line">        //this-&gt;obj</div><div class="line">        this.name=&quot;aa&quot;;</div><div class="line">        this.age=12;</div><div class="line">        this.f=function () &#123;</div><div class="line">            console.log(&quot;11&quot;)</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">    var obj1=new Fn();</div><div class="line">    //obj1是Fn这个类的一个具体的实例</div><div class="line">    var obj2=new Fn();</div><div class="line">    //obj2是Fn这个类的一个具体的实例</div><div class="line">    console.log(obj1.f===obj2.f);</div><div class="line"></div><div class="line">    console.log(obj1);</div><div class="line"></div><div class="line">    function FF() &#123;</div><div class="line">        //this-&gt;obj</div><div class="line">        this.name=&quot;aa&quot;;</div><div class="line">        this.age=12;</div><div class="line">        this.f=function () &#123;</div><div class="line">            console.log(&quot;11&quot;)</div><div class="line">        &#125;</div><div class="line">        return this</div><div class="line">    &#125;</div><div class="line">    var obj0=new  FF();</div><div class="line">    console.log(obj0);</div><div class="line"></div><div class="line">    var num=1;</div><div class="line">    function XX() &#123;</div><div class="line">        var num=12;</div><div class="line">        this.num=10;</div><div class="line">        this.x=100;</div><div class="line">        this.y=function () &#123;</div><div class="line">            console.log(this.x+num)</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    var x1=new XX();</div><div class="line">    console.log(x1.x,x1.num);</div><div class="line">    //x1.x=100,x1.num=10</div><div class="line">    x1.y();</div><div class="line">    var x2=new XX();</div><div class="line">    //x2=&#123;num:10,x:100,y:function()&#123;&#125;&#125;</div><div class="line">    console.log(x1.x===x2.x);</div><div class="line">    console.log(x1.y===x2.y);//false</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;!--</div><div class="line">var x1=new XX();</div><div class="line">创建了XX类的一个实例x1,</div><div class="line">先让XX执行，形成一个私有作用域，预解释：var 私有变量num</div><div class="line">私有作用域中代码执行：num=12；</div><div class="line">通过this给实例增加了三个私有属性，并且赋值，然后将创建的好的this实例返回出来给了x1,现在x1=&#123;num:10,x:100,y:function()&#123;&#125;&#125;</div><div class="line">x1.y()-&gt;function () &#123;</div><div class="line">console.log(this.x+num)&#125;</div><div class="line">这里面的this值得是x1,x1.x+12=112</div><div class="line">--&gt;</div></pre></td></tr></table></figure>
+<p>#####所有的类都是函数数据类型，Object是一个类，说明Object是函数数据类型的。他就是函数数据类型的一个实例；</p>
+<p>#####原型模式</p>
+<blockquote>
+<p>实例通过this得到的是私有的属性和方法，还可以继承所属类的共有属性和方法，比如说，每个数组都有sort这个方法，这个方法是在类Array原型上，因为所有数组都是Array类的一个具体实例，所以只要是数组就可以用；<br>1.每一个函数数据类型（函数，所有的类）天生都有一个prototype（原型）属性；prototype里面存储的是共有的属性和方法，这个属性是一个对象数据类型的，浏览器会给他开辟一个堆内存，开辟的堆内存里边又有一个天生自带的属性construction（构造函数），而且指向的是类本身；<br>2.所有的对象数据类型都有一个（数据类型中除了函数和基本数据类型的其他都是,注意：实例和prototype是对象数据类型）天生自带–proto–，指向所属类的原型（prototype）；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function FF()&#123;</div><div class="line">   //this </div><div class="line">   this.a=12</div><div class="line">   this.ff=function&#123;</div><div class="line">   cosole.log thsi.(a)</div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+</blockquote>
+<p>#####链试写法的实现的原理   return this</p>
+<p>#####原型的链：</p>
+<blockquote>
+<p>实例.属性名，遇到属性名先看是不是自己的私有属性，如果是的话就用私有的，不是的话，通过实例的_ <em>proto</em> <em>找到所属类的原型（prototype），还没有的话，通过所属类的prototype的</em> <em>proto</em> _继续找，一直找到基类Objcet的prototype,在没有就是undefined；</p>
+<p>#####object 是js中所有对象数据类型的基类（最顶层的类）；<br>1.在Object.prototype上没有<strong>proto</strong>这个属性，是一个唯一没有这个属性的</p>
+<p>#####原型链模式<br>f1.hasOwnProperty(“x”);//true可以输出说明hasOwnProperty是f1的一个属性；但是我们发现f的私有属性上并没有这个方法，那如何处理的呢？<br>通过 对象名.属性名 的方式获取属性值得时候，首先在对象私有的属性上进行查找，如果私有中存字这个属性，择获取的是私有属性；<br>如果私有的没有，择通过——proto——找到所属类的原型（类的原型上定义的属性和方法都是当前实例公有的属性和方法），原型上存在的话获取的是公有的属性值，如果原型上也没有的话则通过<em>proto</em>继续向上查找，一直找到基类（Object）的原型（prototype）上为止；<br>这种查找的机制就是我们的原型链模式；</p>
+<p>#####链试写法<br>执行完数组的一个方法可以紧接着执行下一个方法；</p>
+<p>#####原型扩展之批量设置公有属性<br>如何批量设置公有属性：<br>1.别名法如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"> var  sts=Fn.prototype：</div><div class="line"> Fn.prototype.sum=function()&#123;&#125;</div><div class="line"> 同等于</div><div class="line"> sts.sum=function()&#123;&#125;</div><div class="line"> sts.a=fucntion()&#123;&#125;</div><div class="line"> sts..........</div><div class="line"> 这样只是少写代码</div><div class="line">&gt;</div></pre></td></tr></table></figure></p>
+<p>2.重构原型对象的方法<br>自己手动添加一个堆内存（公有的），但是只有浏览器天生给Fn.prototype开辟的堆内存里面才有constructor，而我们自己开辟的这个堆内存内没有这个属性，这样constructor指向就不是Fn了而是Object了；<br>为了和原来的保持一致，我们需要手动增加constructor的指向（constructor：Fn）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&gt; function Fn()&#123;</div><div class="line">&gt; this.a=2</div><div class="line">&gt; &#125;</div><div class="line">&gt; 设置Fn的公有属性给他添加一个堆内存</div><div class="line">&gt; Fn.prototype= &#123;</div><div class="line">&gt; constructor：Fn//这样就指向Fn了</div><div class="line">&gt;   a：function ()&#123;&#125;</div><div class="line">&gt;   b:function()&#123;&#125;</div><div class="line">&gt;   c:function()&#123;&#125;</div><div class="line">&gt;   引用数据类型都会开辟一个新内存</div><div class="line">&gt; &#125;</div><div class="line">&gt;</div></pre></td></tr></table></figure></p>
+<p>3.用这种方法给内置类增加公有的属性比如给Array增加去重的方法，Array内置有很多方法比如sort，splice等等就被新开辟的堆内存覆盖掉，所以我们用这种方法会背浏览器屏蔽掉；<br>但是我们可以一个个的修改内置方法，当我们通过下述方法在数组的原型上增加方法，如果方法名和原来的内置重复了，会把人家的修改掉–&gt;我们以后再内置类的原型上增加方法，命名都要加特殊前缀；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Array.prototype.sort=function()&#123;</div><div class="line">方法</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+</blockquote>
+<p>#####Object.create(obj1)</p>
+<blockquote>
+<p>Object.create（ProObj）创建一个新的对象，但是还要把proObj作为这个对象的原型</p>
+<p>#####数据类型检测；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">constructor</div><div class="line">console.log(ary.constructor.name)</div><div class="line">console.log(ary.constructor)</div></pre></td></tr></table></figure></p>
+<p>instanceof :检测这个实例是否属于某个类，能详细检测引用数据类型<br>对于基本数据类型，用字面量创建方式检测不出来，用构造函数创建的可以检测，因为每一种数据类型都对应自己所属的类，比如一个数字是Number类的实例，所以instanceof可以用来检测数据类型；<br>注意</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/05/02/js笔记/js正式课第二天/" data-id="cj27dljb00003lkvcjww1yxc5" class="article-share-link">Partager</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-服务器使用方法" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -104,7 +384,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/04/26/服务器使用方法/" data-id="cj1y9ullu00008kvcmoqay82r" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/04/26/服务器使用方法/" data-id="cj1y9ullu00008kvcmoqay82r" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -251,7 +531,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/04/26/第六天笔记/" data-id="cj1y9ulma00028kvcuh0zxvh4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/04/26/第六天笔记/" data-id="cj1y9ulma00028kvcuh0zxvh4" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -364,7 +644,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/04/26/第七天笔记/" data-id="cj1y9ullu00018kvcy129cvri" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/04/26/第七天笔记/" data-id="cj1y9ullu00018kvcy129cvri" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -641,7 +921,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/04/26/css选择器2/" data-id="cj1y9ulma00038kvcm8zwg0rr" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/04/26/css选择器2/" data-id="cj1y9ulma00038kvcm8zwg0rr" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -779,7 +1059,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/04/25/第四天笔记/" data-id="cj1xfzk3y000b6kvcoc5x6mw1" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/04/25/第四天笔记/" data-id="cj1xfzk3y000b6kvcoc5x6mw1" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -915,497 +1195,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/04/25/第十五天/" data-id="cj1xfzk3l00086kvcdcfi4pdr" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-第五天" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/04/25/第五天/" class="article-date">
-  <time datetime="2017-04-25T11:00:29.337Z" itemprop="datePublished">2017-04-25</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="第五天"><a href="#第五天" class="headerlink" title="第五天"></a>第五天</h1><h2 id="块级元素的特点"><a href="#块级元素的特点" class="headerlink" title="块级元素的特点"></a>块级元素的特点</h2><ul>
-<li>独占一行，在所在父元素内依次向下排列，从左上角开始</li>
-<li>宽度和高度在不设置的情况下，宽度继承父级元素内容的宽，高度有本身内容决定</li>
-<li>可以直接设置盒子模型的所有属性（width height padding border margin）</li>
-<li>可以嵌套其他元素<ul>
-<li>p，dt，h1-h6不能嵌套块级</li>
-</ul>
-</li>
-</ul>
-<h2 id="行内元素和行内块级元素"><a href="#行内元素和行内块级元素" class="headerlink" title="行内元素和行内块级元素"></a>行内元素和行内块级元素</h2><ul>
-<li>在一行显示，从左到右，达到父级元素最大宽度的时候，会自动折行</li>
-<li>在编辑代码时，元素之间有回车或者空格，在页面显示的时候，盒子和盒子之间会有间隙</li>
-<li>默认是基线对齐</li>
-<li>默认不设置宽度的时候，宽高都是由本身内容决定的</li>
-</ul>
-<p>##行内元素</p>
-<ul>
-<li>宽度和高度不能设置</li>
-<li>可以设置pading和margin的左右值</li>
-</ul>
-<h2 id="行内块级元素"><a href="#行内块级元素" class="headerlink" title="行内块级元素"></a>行内块级元素</h2><ul>
-<li>可以设置盒子模型的所有属性</li>
-</ul>
-<h2 id="在布局中如何使用css属性将块级元素放到一行排布"><a href="#在布局中如何使用css属性将块级元素放到一行排布" class="headerlink" title="在布局中如何使用css属性将块级元素放到一行排布"></a>在布局中如何使用css属性将块级元素放到一行排布</h2><ul>
-<li>float:left/right<ul>
-<li>盒子可以从左向右 或者 从右向左</li>
-</ul>
-</li>
-<li>display : inline   /   inline-block   /    table <ul>
-<li>inline  盒子就不能设置宽度和高度 </li>
-<li>inline-block  可以设置宽高 但是只能从左到右</li>
-<li>table  可以设置宽高 但是只能从左到右<ul>
-<li>给父级元素设置 display:table;</li>
-<li>给子级元素设置display:table-cell;(单元格)</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p>测试</p>
-<ul>
-<li>自测</li>
-<li>UI</li>
-<li>测试（功能）</li>
-<li>试运行</li>
-<li>正式上线</li>
-</ul>
-<h2 id="background-背景"><a href="#background-背景" class="headerlink" title="background 背景"></a>background 背景</h2><p>背景和内容的关系，背景永远在内容之后<br>background-image: url(“”); –&gt; 引入背景图片<br>background-repeat:no-repeat; –&gt; 背景图片填充方式 不平铺<br>background-color:red; –&gt; 设置背景颜色（会在背景图片的后面）<br>background-position: 3px 5px;</p>
-<blockquote>
-<p>如何让图片的中心点和盒子的中心重合<br>background-position: center center;</p>
-</blockquote>
-<p>background-origin: content-box; –&gt; 规定背景图片定位的 </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">height: 300px;background-color: yellow;</div><div class="line">            background-image: url(&quot;导航头部/images/icon.png&quot;),url(&quot;导航头部/images/logo.png&quot;);</div><div class="line">            background-repeat: no-repeat;</div><div class="line">            background-position: top center,right bottom;</div><div class="line">            /*ie 678 （低版本浏览器） 不兼容*/</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">background: yellow url(&quot;导航头部/images/icon.png&quot;) no-repeat 10px 20px;</div><div class="line">background-size:100% auto;</div></pre></td></tr></table></figure>
-<h3 id="绝对定位"><a href="#绝对定位" class="headerlink" title="绝对定位"></a>绝对定位</h3><ul>
-<li>想让盒子在父级盒子的那个位置，就在哪个位置</li>
-<li>脱离文档流（父级盒子找不到这个定位子级盒子的宽度和高度了）</li>
-<li>必须有一个参照物，这个参照物只能是这个定位盒子的父级元素（只要是包含的就可以），父级元素还必须带有定位属性</li>
-<li>定位的元素层级高于普通元素</li>
-</ul>
-<blockquote>
-<p>当行内元素或行内块级元素设置line-height不生效的时候，可以将这个元素display属性值设置为block<br>块级元素通过display:inline-block;转化后，ie7不会识别，所以要在display:inline-block;之后添加一个*display:inline;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">display: inline-block;</div><div class="line">*display:inline;</div></pre></td></tr></table></figure></p>
-<p>第二种解决方式是将这个元素直接设置为float浮动的元素</p>
-<p>在ie7中，如果结构<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;style&gt;</div><div class="line">b&#123;float:right;&#125;</div><div class="line">&lt;/style&gt;</div><div class="line">&lt;h3&gt;文字 &lt;b&gt;&lt;/b&gt;&lt;/h3&gt;</div><div class="line">b元素会跑到h3元素的下方</div><div class="line">将“文字”用一个元素包起来，将这个元素float:left;即可</div></pre></td></tr></table></figure></p>
-</blockquote>
-<p>选择器 格式 用法<br>小例子 敲三遍</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/04/25/第五天/" data-id="cj1xfzk3n00096kvctq8eidgi" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-第二天笔记" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/04/25/第二天笔记/" class="article-date">
-  <time datetime="2017-04-25T11:00:29.330Z" itemprop="datePublished">2017-04-25</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>#第二天笔记</p>
-<p>[TOC]</p>
-<h2 id="复习"><a href="#复习" class="headerlink" title="复习"></a>复习</h2><ul>
-<li>前端三层：HTML   CSS   JS（javascript）</li>
-<li>网页（就是一个HTML文件）</li>
-<li>网站（由很多个网页组成）</li>
-<li>站群（由很多网站组成）</li>
-<li>标签（由尖空号和关键字成的超文本）</li>
-<li>关键字（普通文本），在编辑HTML这门语言的时候，相关组织将这些文本归纳到了一定的规则中，使他有了特殊的含义和作用</li>
-<li><p>标签的分类：开始标签，结束标签和空标签</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;开始标签&gt;</div><div class="line">&lt;/结束标签&gt;</div><div class="line">&lt;空标签 /&gt;</div><div class="line">div b strong ul li ol p....</div></pre></td></tr></table></figure>
-</li>
-<li><p>标签属性：它是用来描述标签功能的，一般写在开始标签中，跟在标签名的后面，用空格隔开，一个标签可以有很多标签属性，每一个属性都用空格隔开</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;开始标签 属性名=&quot;属性值&quot; 属性名1=&quot;属性值&quot;&gt;&lt;/结束标签&gt;</div><div class="line">&lt;img src=&quot;url&quot; alt=&quot;备注&quot; /&gt;</div></pre></td></tr></table></figure>
-</li>
-<li><p>元素：由标签（开始和结束标签中包含内容）和内容组成，元素中内容可以为空，一个空标签也叫做一个元素</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt;content&lt;/div&gt; -- &gt; div元素</div><div class="line">&lt;img src=&quot;url&quot; alt=&quot;备注&quot; /&gt;  -- &gt; img元素</div><div class="line">``` </div><div class="line">&gt; 标签属性经过HTML的进化，舍弃了有关样式的标签属性，保留功能的标签属性</div><div class="line">&gt; 例如舍弃 width  bgcolor  align ，这些样式描述都放在css里面</div><div class="line">&gt; 保留 alt  title src  href...</div><div class="line"></div><div class="line">- 常用的标签</div><div class="line">	- div  无意义标签 作用：布局 大模块的区分</div><div class="line">	- span 无意义标签 作用：布局 行内小模块区分</div><div class="line">	- b 作用：__加粗__</div><div class="line">	- strong 强调  作用：**加粗**</div><div class="line">	- i 作用：_斜体_</div><div class="line">	- em 强调  作用：*斜体*</div><div class="line">	- p 段落</div><div class="line">	- h1-h6 标题</div><div class="line">	- a 超链接 锚点</div><div class="line">		- `&lt;a href=&quot;javascript:void (0);&quot;&gt;`</div><div class="line">	- dl 定义列表 常用在新闻标题和摘要</div><div class="line">		- dt  定义标题</div><div class="line">		- dd 定义描述</div><div class="line">		- 一个dt可以有多个dd进行描述</div><div class="line">	- table 表格 </div><div class="line">		- caption 标题</div><div class="line">		- thead 表头</div><div class="line">			- tr &gt; th(标题单元格)</div><div class="line">		- tfoot  表尾</div><div class="line">			- tr &gt; td(普通单元格)</div><div class="line">		- tbody 表身</div><div class="line">			- tr &gt; td(普通单元格)</div><div class="line">		</div><div class="line">	&gt; thead和tfoot分别有一个 tbody可以有多个</div><div class="line">	&gt; tfoot一般放置在thead的后面，为了防止tbody中的内容过多，tfoot加载过慢的情况，但是虽然书写位置在前面，在页面中显示的时候，这部分依然在整个表格的最后面</div><div class="line">&gt; 如果table用来搭建结构，我们只需写tr和td</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><table><br>    <tr><br>        <td></td><td></td><td></td><br>    </tr><br>    <tr><br>        <td></td><td></td><td></td><br>    </tr><br></table><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">- 表单 获取用户信息 `&lt;form&gt;&lt;/form&gt;`</div></pre></td></tr></table></figure></p>
-<p><form><br>    <input type="radio" name="ok" checked="checked"><!--单选按钮--><label>满意</label><!--label 描述表单元素功能--><br>    <!--type 类型--><br>    <!--name 名字--><br>    <!--checked 选中--><br>    <input type="radio" name="ok"><!--单选按钮--><label>不满意</label><br>    <input type="checkbox"><label>篮球</label><br>    <input type="checkbox" checked><label>美女</label><br>    <input type="checkbox"><label>彭于晏</label><br>    <input type="checkbox"><label>陈冠希</label><br>    <input type="checkbox"><label>杨颖</label><br>    <input type="checkbox"><label>维密</label></form></p>
-<pre><code>&lt;textarea maxlength=&quot;10&quot; minlength=&quot;1&quot;&gt;&lt;/textarea&gt;&lt;!--文本域--&gt;
-&lt;!--maxlength 字符输入的最大长度--&gt;
-&lt;br&gt;
-&lt;label&gt;姓名&lt;/label&gt;&lt;input type=&quot;text&quot;&gt;
-&lt;br&gt;
-&lt;label&gt;手机&lt;/label&gt;&lt;input type=&quot;text&quot;&gt;
-&lt;br&gt;
-&lt;label&gt;密码&lt;/label&gt;&lt;input type=&quot;password&quot;&gt;
-</code></pre><p><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">## HTML的基本结构</div><div class="line">一个HTML文件也叫做一个网页，可以有称作是一个文档（document）</div><div class="line">整个文档从html元素开始，一直向下分支延伸，像一颗大树一样，所以我们将html元素叫做这个文档的**根元素**</div><div class="line"></div><div class="line">### `&lt;!DOCTYPE html&gt;`文档声明</div><div class="line">作用：定义这个文档的类型，浏览器先识别这句话，会按照定义的类型去解析这个文档</div></pre></td></tr></table></figure></p>
-<p>&lt;!DOCTYPE html&gt;<br>HTML5 版本的文档声明，那么浏览器就会按照html5的规则去解析整个页面</p>
-<p>&lt;!DOCTYPE HTML PUBLIC “-//W3C//DTD HTML 4.01 Transitional//EN” “<a href="http://www.w3.org/TR/html4/loose.dtd&quot;&gt;" target="_blank" rel="external">http://www.w3.org/TR/html4/loose.dtd&quot;&gt;</a><br>html4 版本的文档声明<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line">&gt; 所有高版本都会向下兼容，所以在以后的工作中，我们直接将文档声明写成html5就可以了</div><div class="line">&gt; </div><div class="line">&gt; 文档声明必须写在html文件的第一行</div><div class="line">&gt; </div><div class="line">&gt; 文档声明不区分大小写</div><div class="line">&gt; </div><div class="line">&gt; 如果html文件没有文档声明，会触发浏览器的怪异模式</div><div class="line">&gt; </div><div class="line">&gt; 文档声明不是一个html标签</div><div class="line"></div><div class="line">### html元素</div><div class="line">此元素可告知浏览器其自身是一个 HTML 文档</div><div class="line">是由开始和结束标签组成的，html文件里面所有的内容都会放在这个元素内</div><div class="line"></div><div class="line">### head元素</div><div class="line">整个文档的头部，head元素自带隐藏功能，display:none;</div><div class="line">里面的内容不会隐藏，只不过一般放置在head元素中的其他元素和内容也是自带隐藏功能的，例如 link meta...</div><div class="line"></div><div class="line">### `&lt;meta&gt;` 规定了html文档的元信息</div><div class="line">- charset=&quot;UTF-8&quot;    文档的编码</div><div class="line">	- utf-8  国际通用编码</div><div class="line">	- gbk</div><div class="line">	- gb2312</div><div class="line">国标</div><div class="line">- name=&quot;keyword&quot; content=&quot;HTML5,JS....&quot;</div><div class="line">关键词  SEO优化  搜素引擎</div><div class="line"></div><div class="line">### title元素</div><div class="line">html文档名称 一个页面只有一个title元素</div><div class="line">放文字 显示在浏览器的页卡（页头）位置</div><div class="line"></div><div class="line">### link </div><div class="line">- `&lt;link href=&quot;favicon.ico&quot; type=&quot;image/x-icon&quot; rel=&quot;shortcut icon&quot;&gt;`</div><div class="line">	- 图标让设计师生成</div><div class="line">	- 一般这个图片放在整个项目的根目录下</div><div class="line">	- 显示在浏览器页卡位置，title内容之前</div><div class="line">	</div><div class="line">- `&lt;link rel=&quot;stylesheet&quot; href=&quot;url&quot; type=&quot;text/css&quot;&gt;`</div><div class="line">	- 引入一个外部的css文件</div><div class="line">	- rel 不能缺少     stylesheet 样式表</div><div class="line">	- type 可以省略 但是建议写全</div><div class="line">	</div><div class="line">### body元素</div><div class="line">定义整个文档的主体部分，所有展示给用户的内容，都要这个元素中</div><div class="line">body中有常用的html元素（div ul），文本内容、音频、视频、图片、表单... ...</div></pre></td></tr></table></figure></p>
-<p>&lt;!DOCTYPE html&gt;</p>
-<p><html><br>    <head><br>        <meta charset="utf-8"><br>        <title></title><br>    </head><br>    <body></body><br></html><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">## 标签语义化</div><div class="line">合理的标签做合理的事情</div><div class="line"></div><div class="line">head标签 就知道是文档头部</div><div class="line"></div><div class="line">浏览器会按照每个标签的意义，去解析这个标签中的内容</div><div class="line">h1  -- &gt;  这是一个大标题，意义很重要，搜索引擎会重点抓取这个里面的内容</div><div class="line"></div><div class="line">p --&gt; 段落 浏览器在展现这一部分的时候，会独立成一块，让网页结构更加清晰，给用户更好的浏览体验</div><div class="line"></div><div class="line">作用：</div><div class="line">- 重要的内容，要放在语义重要的标签中，利于SEO优化（搜索引擎抓取）</div><div class="line">- 在没有css样式的时候，页面也可以整齐的显示效果</div><div class="line">-  利于团队协作和后期维护</div><div class="line"></div><div class="line">在日常工作中如何遵循标签语义化</div><div class="line">    1、尽量减少使用无意义标签，例如span和div；</div><div class="line">    2、尽量不使用标签本身的css属性，例如b、font、s等标签，如果需要这些样式，那么使用css样式来进行添加；</div><div class="line">    3、在需要强调的部分，使用strong、em，但是样式尽量使用css样式来描述；</div><div class="line">    4、表格搭建时，使用`&lt;thead&gt;表格头部&lt;/thead&gt; ``&lt;tbody&gt;表格身体&lt;/tbody&gt;` `&lt;tfoot&gt;表格尾部&lt;/tfoot&gt;`；</div><div class="line">    5、列表搭建时，使用`&lt;ul&gt;无序列表&lt;/ul&gt;`` &lt;ol&gt;有序列表&lt;/ol&gt; ``&lt;dl&gt;定义列表&lt;/dl&gt;`；</div><div class="line"></div><div class="line">国家评比一个网站的关键点：访问量（流量 点击量）</div><div class="line"></div><div class="line">iframe 在引入其他文件的时候，必须写宽度和高度</div><div class="line"></div><div class="line">## CSS 层叠样式表</div><div class="line">- css的作用</div><div class="line">- css和html如何融合到一起</div><div class="line">- 在css文件中，如何选择一个html元素，将样式添加给这个元素</div><div class="line"></div><div class="line">作用：给html文档添加静态或者动态的样式</div><div class="line"></div><div class="line">css如何在html中使用（html引入css的四种方式）</div><div class="line">- 行内式：直接写在标签内，通过标签属性style引入</div></pre></td></tr></table></figure></p>
-<p><div style="css属性名:属性值;"></div><br><img style="css属性名:属性值;" alt=""><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">- 内嵌式（内联式）:将css代码写在style元素内，通过css选择器选择html元素，将css样式添加个这个元素</div><div class="line">	- style这个元素，一般放在head元素内</div></pre></td></tr></table></figure></p>
-<style>
-div{height:100px;}
-</style>
-
-<p><div></div><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- 外联式（外链式）：将css代码单独放置在一个css文件中，再通过link标签将这个css文件引入到html文件中</div></pre></td></tr></table></figure></p>
-<p><link rel="stylesheet" href="url" type="text/css"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">- 导入式：@import &quot;url&quot;; 都是引入一个单独的css文件</div><div class="line">	- @import &quot;url&quot;; 既不是html标签，也不是css属性，他是一条声明语句</div><div class="line">	- 这条语句必须写在style元素内，或者css文件内</div><div class="line">	- 这条语句必须在所在文件内的第一行</div></pre></td></tr></table></figure></p>
-<p><style><br>@import “url”;<br></style><br>```</p>
-<p>面试题：<br>外联式和导入式的差别：</p>
-<ul>
-<li>link和@import虽然都是引入外部的css文件，但是他们是由天差地别的区别的</li>
-<li>link是html标签，@import完全是css提供的方式，要写在css文件或者style标签中。</li>
-<li>他们的加载顺序也是有区别的，当一个页面被加载的时候，link引用的css文件会被同时加载，而@import引入的css文件会等页面全部下载完后再加载。</li>
-<li>当使用javascript控制DOM去改变css样式的时候，只能使用link标签，因为import是不能被DOM控制的。</li>
-</ul>
-<p>在工作中常用的引入方式是外联式<br>四种引入方式的权重：<br>一个html元素最终加载的css样式是谁绝对的</p>
-<p>有行内式的时候，听行内的<br>在选择器相同的情况下，谁最后加载就听谁的</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/04/25/第二天笔记/" data-id="cj1xfzk3o000a6kvct78xldhi" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-第三天笔记" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/04/25/第三天笔记/" class="article-date">
-  <time datetime="2017-04-25T11:00:29.321Z" itemprop="datePublished">2017-04-25</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>#第三天笔记</p>
-<p>##复习<br>[TOC]</p>
-<p>###HTML的基本结构<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;  </div><div class="line">文档声明 ： 必须放在html文件的第一行；如果没有文档声明，会触发浏览器的怪异模式。html5 版本</div><div class="line">&lt;html&gt;</div><div class="line">html元素：告知浏览器我是一个html文件</div><div class="line">	&lt;head&gt;</div><div class="line">	head元素：文档的头部，一般放在文档头部的内容是不会显示在浏览器可视区内的</div><div class="line">	&lt;meta charset=&quot;utf-8&quot;&gt;</div><div class="line">	&lt;title&gt;标题 显示在浏览器的页卡位置&lt;/title&gt;</div><div class="line">	title中的内容也会被SEO抓取</div><div class="line">	&lt;/head&gt;</div><div class="line">	&lt;body&gt;</div><div class="line">		供用户浏览的所有内容，标签 图片 文本 视频 ...</div><div class="line">	&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
-<h3 id="CSS-层叠样式表"><a href="#CSS-层叠样式表" class="headerlink" title="CSS 层叠样式表"></a>CSS 层叠样式表</h3><p>作用：为html结构层增加样式层，常用的css引入方式为外联式，因为外联式可以加快浏览器加载网页的速度，可以多个html是用一套css样式表，利于修改。</p>
-<p>外联式和内嵌式一般都放在head元素内</p>
-<h2 id="css选择器"><a href="#css选择器" class="headerlink" title="css选择器"></a>css选择器</h2><p>因为html和css分离，那么就出现一个问题，如何选择一个元素，将样式添加给这个元素  —&gt;  css选择器</p>
-<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><p><img src="./1490150407956.png" alt="Alt text"></p>
-<p>选择器{key:value;key:value;}</p>
-<ul>
-<li>可以批量选择<strong>选择器</strong>名称相同的元素</li>
-<li>通过选择器类型不同，可以选择不同的html元素</li>
-</ul>
-<h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><h4 id="标签选择器"><a href="#标签选择器" class="headerlink" title="标签选择器"></a>标签选择器</h4><p>直接将html元素的标签名当做选择器<br>权重：1<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;style&gt;h1&#123;color:red;&#125;&lt;/style&gt;</div><div class="line">&lt;h1&gt;标签选择器&lt;/h1&gt;</div></pre></td></tr></table></figure></p>
-<h4 id="类选择器"><a href="#类选择器" class="headerlink" title="类选择器"></a>类选择器</h4><p>将html元素的class标签属性值，当做选择器使用，需要在这个属性值前面加一个 “ . “<br>权重：10</p>
-<p>一个html元素，可以有多个class 属性值（可以有多个类名），每一个类名之间用空格隔开</p>
-<p>类名可以重复使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;style&gt;.title&#123;color:red;&#125;&lt;/style&gt;</div><div class="line">&lt;h1 class=&quot;title title1&quot;&gt;类选择器&lt;/h1&gt;</div><div class="line">&lt;h2 class=&quot;title&quot;&gt;&lt;/h2&gt;</div></pre></td></tr></table></figure></p>
-<h4 id="id选择器"><a href="#id选择器" class="headerlink" title="id选择器"></a>id选择器</h4><p>将html元素的id标签属性值，当做选择器使用，需要在这个属性值前面加一个 “ # “<br>权重：100</p>
-<p>一个html元素，id属性值只能用一次，id再html中具有唯一性</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;style&gt;#title&#123;color:red;&#125;&lt;/style&gt;</div><div class="line">&lt;h1 id=&quot;title&quot;&gt;id选择器&lt;/h1&gt;</div><div class="line">&lt;h2 id=&quot;title&quot;&gt;错误的 不识别&lt;/h2&gt;</div></pre></td></tr></table></figure>
-<p>标签选择器相当于人的姓，类选择器相当于人的名字，id选择器相当于身份证号码</p>
-<h4 id="通配符选择器"><a href="#通配符选择器" class="headerlink" title="通配符选择器"></a>通配符选择器</h4><p>匹配全部html元素<br>一般不使用，因为全部匹配耗性能<br>权重：0 &lt; * &lt; 1<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">*&#123;key:value;&#125;</div></pre></td></tr></table></figure></p>
-<h4 id="（标签）属性选择器"><a href="#（标签）属性选择器" class="headerlink" title="（标签）属性选择器"></a>（标签）属性选择器</h4><p>利用标签的属性名和属性值来选择html元素<br>权重：10<br>[属性名]{}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;style&gt;</div><div class="line">h1[title]&#123;&#125;  交集选择器</div><div class="line">标签+属性的权重=11</div><div class="line">[title]&#123;&#125;  权重 10</div><div class="line">[type=text]&#123;&#125;  权重 10</div><div class="line">&lt;/style&gt;</div><div class="line"></div><div class="line">&lt;a href=&quot;&quot; title=&quot;&quot;&gt;link&lt;/a&gt;</div></pre></td></tr></table></figure></p>
-<h4 id="分组选择器（并集选择器）"><a href="#分组选择器（并集选择器）" class="headerlink" title="分组选择器（并集选择器）"></a>分组选择器（并集选择器）</h4><p>作用（应用场景）：同一份css样式，可以一次性的添加给多个不同html元素<br>语法：<br>选择器1,选择器2,选择器3{}<br>权重：分组选择器将不同的html分为一组，权重计算的时候都是独立计算，不会叠加<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">.box,li,.p1&#123;color: yellow;&#125;</div><div class="line">.box&#123;color: green;&#125;</div></pre></td></tr></table></figure></p>
-<h4 id="交集选择器"><a href="#交集选择器" class="headerlink" title="交集选择器"></a>交集选择器</h4><p>两种属性同属一个元素的时候，我们可以使用交集选择器来进行元素的准确选择<br>权重：所有组合选择器权重之和</p>
-<blockquote>
-<p>组合选择器之间没有任何的符号和空格<br>标签选择器和其他选择器组合的时候，标签选择器要放在前面<br>交集选择器是两个选择器组合在一起，可以是标签和类名，标签和属性选择器，标签和id，两个类选择器</p>
-</blockquote>
-<p>作用：精确查找元素，增加选择器的权重<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">&lt;style&gt;</div><div class="line">h1&#123;&#125; 标签选择器  权重：1</div><div class="line">[title]&#123;&#125; 属性选择器 权重：10</div><div class="line">[title=zfpx] 属性选择器 权重：10</div><div class="line">h2[title]&#123;&#125;  交集选择器  权重：11</div><div class="line">h2[title=zfpx]&#123;&#125;  交集选择器  权重：11</div><div class="line">&lt;/style&gt;</div><div class="line">&lt;h1 title=&quot;zfpx&quot;&gt;&lt;/h1&gt;</div><div class="line">&lt;h2 title=&quot;zfpx&quot;&gt;&lt;/h2&gt;</div><div class="line">&lt;style&gt;</div><div class="line">p.p1&#123;&#125;  交集选择器  权重：11</div><div class="line">&lt;/style&gt;</div><div class="line">&lt;p class=&quot;p1&quot;&gt;&lt;/p&gt;</div><div class="line"></div><div class="line">&lt;style&gt;</div><div class="line">.p1.p2&#123;&#125;  交集选择器  权重：20</div><div class="line">&lt;/style&gt;</div><div class="line">&lt;p class=&quot;p1 p2&quot;&gt;&lt;/p&gt;</div></pre></td></tr></table></figure></p>
-<h4 id="子级选择器"><a href="#子级选择器" class="headerlink" title="子级选择器"></a>子级选择器</h4><p>存在包含关系的元素选择，通过父级确定选择子级<br>语法：父级选择器&gt;子级选择器{}<br>父级选择器是用来确定取值范围<br>子级选择器才是我们要添加样式的那个元素</p>
-<p>权重：所有选择器之和</p>
-<blockquote>
-<p>子级选择器必须是紧邻的父子关系<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;style&gt;</div><div class="line">ul&gt;li&#123;color:red;&#125; /*选择ul下的li*/</div><div class="line">/*权重 2*/</div><div class="line">&lt;/style&gt;</div><div class="line">&lt;ul&gt;</div><div class="line">	&lt;li&gt;M&lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div><div class="line">&lt;ol&gt;</div><div class="line">	&lt;li&gt;M&lt;/li&gt;</div><div class="line">&lt;/ol&gt;</div></pre></td></tr></table></figure></p>
-</blockquote>
-<h4 id="后代选择器（派生选择器）"><a href="#后代选择器（派生选择器）" class="headerlink" title="后代选择器（派生选择器）"></a>后代选择器（派生选择器）</h4><p>在一个根元素的范围内，查找到它的后代元素<br>语法：祖辈选择器 要查找的后代选择器{}<br>用空格连接</p>
-<blockquote>
-<p>后代选择器在写的时候，尽量控制在三个左右</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">&lt;style&gt;</div><div class="line">.div1 ul span&#123;&#125;</div><div class="line">&lt;/style&gt;</div><div class="line">&lt;div class=&quot;div1&quot;&gt;</div><div class="line">    &lt;ul&gt;</div><div class="line">        &lt;li&gt;</div><div class="line">            &lt;span&gt;只选择了这个span元素&lt;/span&gt;</div><div class="line">        &lt;/li&gt;</div><div class="line">    &lt;/ul&gt;</div><div class="line">    &lt;ol&gt;</div><div class="line">        &lt;li&gt;</div><div class="line">            &lt;span&gt;wenzdskaldjaslk&lt;/span&gt;</div><div class="line">        &lt;/li&gt;</div><div class="line">    &lt;/ol&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;div class=&quot;div2&quot;&gt;</div><div class="line">    &lt;ul&gt;</div><div class="line">        &lt;li&gt;</div><div class="line">            &lt;span&gt;wenzdskaldjaslk&lt;/span&gt;</div><div class="line">        &lt;/li&gt;</div><div class="line">    &lt;/ul&gt;</div><div class="line">    &lt;ol&gt;</div><div class="line">        &lt;li&gt;</div><div class="line">            &lt;span&gt;wenzdskaldjaslk&lt;/span&gt;</div><div class="line">        &lt;/li&gt;</div><div class="line">    &lt;/ol&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
-<h4 id="相邻兄弟选择器"><a href="#相邻兄弟选择器" class="headerlink" title="相邻兄弟选择器"></a>相邻兄弟选择器</h4><p>通过哥哥元素选择弟弟元素 两个选择器之间用“+”连接<br>语法： 哥哥选择器+弟弟选择器{}</p>
-<p>权重：选择器之和</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;style&gt;</div><div class="line">    .list1+li&#123;color: red;&#125;</div><div class="line">    .list3+li&#123;color: green;&#125;</div><div class="line">    /*li+.list3&#123;&#125;*/</div><div class="line">&lt;/style&gt;</div><div class="line">&lt;ul&gt;</div><div class="line">    &lt;li class=&quot;list1&quot;&gt;11111&lt;/li&gt;</div><div class="line">    &lt;li&gt;22222&lt;/li&gt;</div><div class="line">    &lt;li class=&quot;list3&quot;&gt;33333&lt;/li&gt;</div><div class="line">    &lt;li&gt;4444&lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div></pre></td></tr></table></figure>
-<h4 id="伪类选择器"><a href="#伪类选择器" class="headerlink" title="伪类选择器"></a>伪类选择器</h4><p>给一个元素添加某种状态<br>例如：鼠标经过时 获取焦点时 鼠标点击时<br>权重：10<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;style&gt;</div><div class="line">        a:link&#123;color: blue;&#125;/*a:link 是默认状态*/</div><div class="line">        a:hover&#123;color: red;&#125;/*a:hover 是鼠标经过状态*/</div><div class="line">        a:active&#123;color: green;&#125;/*a:active 是鼠标点击状态*/</div><div class="line">        a:visited&#123;color: blueviolet;&#125;/*a:visited 鼠标点击后的状态*/</div><div class="line">&lt;/style&gt;</div><div class="line">&lt;a href=&quot;javascript:void (0);&quot;&gt;最初形态&lt;/a&gt;</div></pre></td></tr></table></figure></p>
-<h4 id="伪元素"><a href="#伪元素" class="headerlink" title="伪元素"></a>伪元素</h4><p>通过css代码向指定元素<strong>内</strong>添加假的（html中不存在）的元素<br>before 会出现在div所有内容之前<br>after会出现在div所有内容之后</p>
-<blockquote>
-<p>使用伪元素的时候要保证两个前提</p>
-<ul>
-<li>要有display这个属性</li>
-<li>要有content这个属性，这个属性的属性值可以为空，但是引号不能少  content:””;<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;style&gt;</div><div class="line">div:before&#123;</div><div class="line">    display: block;</div><div class="line">    content: &quot;我是before&quot;;</div><div class="line">    font-size: 40px;</div><div class="line">    color: white;</div><div class="line">&#125;</div><div class="line">div:after&#123;</div><div class="line">    display: block;</div><div class="line">    content: &quot;我是after&quot;;</div><div class="line">    font-size: 60px;</div><div class="line">    color: aqua;</div><div class="line">&#125;</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-</blockquote>
-<p><img src="./1490172425198.png" alt="Alt text"><br><img src="./1490172873213.png" alt="Alt text"></p>
-<h2 id="css属性的继承"><a href="#css属性的继承" class="headerlink" title="css属性的继承"></a>css属性的继承</h2><p>子级元素从父级元素身上继承一些可继承的css属性<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;style&gt;</div><div class="line">div&#123;color:red;&#125;</div><div class="line">&lt;/style&gt;</div><div class="line">&lt;div&gt;</div><div class="line">	&lt;p&gt;我是一个p标签&lt;/p&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
-<p>哪些css样式可以被继承：和文字有关的css样式  和列表有关的样式<br><a href="http://www.zhufengpeixun.com/qianduanjishuziliao/qianduanCSSziliao/2016-07-24/530.html" target="_blank" rel="external">网站css样式调整之css的继承方式</a></p>
-<p>如果css属性不带有继承性，如何继承父级身上的属性，可以将要继承的属性的属性值写上–inherit</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ul&#123;float:left;&#125;</div><div class="line">li&#123;float:inherit;&#125; float:inherit;===float:left;</div></pre></td></tr></table></figure>
-<h2 id="路径-url"><a href="#路径-url" class="headerlink" title="路径 url"></a>路径 url</h2><h3 id="绝对路径"><a href="#绝对路径" class="headerlink" title="绝对路径"></a>绝对路径</h3><p>指带域名的文件的完整路径或磁盘中指定文件的全部路径<br><a href="http://www.zhufengpeixun.com/qianduanjishuziliao/qianduanCSSziliao/2016-07-24/530.html" target="_blank" rel="external">http://www.zhufengpeixun.com/qianduanjishuziliao/qianduanCSSziliao/2016-07-24/530.html</a></p>
-<p>D:\2017年教学\第四期视频\第三天\1.选择器.mp4</p>
-<p>珠峰培训<br>北京市昌平区回龙观东大街3号楼</p>
-<h3 id="相对路径"><a href="#相对路径" class="headerlink" title="相对路径"></a>相对路径</h3><p>是指在同一个文件夹下，通过一个参考点找到其他文件<br>1  返回上一级 用     ../<br>2  平级之间直接写文件名<br>3  下一级用  /<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;link rel=&quot;stylesheet&quot; href=&quot;../../css文件夹/style.css&quot;&gt;</div></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/04/25/第三天笔记/" data-id="cj1xfzk3b00056kvc0cbm0b86" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-第一天笔记" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/04/25/第一天笔记/" class="article-date">
-  <time datetime="2017-04-25T11:00:29.305Z" itemprop="datePublished">2017-04-25</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>#第一天笔记<br>[TOC]</p>
-<h3 id="前端三层"><a href="#前端三层" class="headerlink" title="前端三层"></a>前端三层</h3><ul>
-<li>HTML 结构 是被浏览器直接解析加载</li>
-<li>CSS 样式 是在html结构之上去装点网站</li>
-<li>javascript 交互 动态效果/数据交互  </li>
-</ul>
-<h3 id="网页"><a href="#网页" class="headerlink" title="网页"></a>网页</h3><p>网页是构成网站的基本元素，通俗来讲一个html文件就是一个网页。</p>
-<h3 id="网站"><a href="#网站" class="headerlink" title="网站"></a>网站</h3><p>是由很多个网页组成的，共同为一个目标服务的网页集合。</p>
-<h3 id="站群-（流水线统一化管理）"><a href="#站群-（流水线统一化管理）" class="headerlink" title="站群 （流水线统一化管理）"></a>站群 （流水线统一化管理）</h3><p>由很多网站组成的，为同一个公司服务。<br>例如整个百度下所属的子公司都有自己的网站，百度搜索、糯米、音乐、手机助手、百度金融…。</p>
-<h3 id="HTTP（超文本传输协议）"><a href="#HTTP（超文本传输协议）" class="headerlink" title="HTTP（超文本传输协议）"></a>HTTP（超文本传输协议）</h3><p>HyperText Transfer Protocol<br>在万维网上提供一种发布和接收HTML页面（网页）的方法<br>eg:<a href="http://www.zhufengpeixun.cn" target="_blank" rel="external">http://www.zhufengpeixun.cn</a><br>404 服务器无响应<br>步骤：</p>
-<ul>
-<li>建立连接：输入网址，建立客户端和服务器端的连接</li>
-<li>发送请求信息：客户端发送一个请求给服务器</li>
-<li>发送响应信息：服务器接到请求后，给予相应的响应信息</li>
-<li>关闭连接：客户端接收服务器所返回的信息通过浏览器显示在用户的显示屏上，然后客户机与服务器断开连接</li>
-</ul>
-<h3 id="服务器"><a href="#服务器" class="headerlink" title="服务器"></a>服务器</h3><p>服务器，是提供计算服务的设备。由于服务器需要响应服务请求，并进行处理，因此一般来说服务器应具备承担服务并且保障服务的能力。</p>
-<p>在网络环境下，根据服务器提供的服务类型不同，分为文件服务器，数据库服务器，应用程序服务器，WEB服务器等。</p>
-<p>防篡改：web端服务器一旦受到攻击，在0.0n秒作出反应，将内网服务器中的内容，马上覆盖在web端服务器上</p>
-<p>负载均衡：平均web服务器压力，将用户访问进行分流</p>
-<p>VPN：用来翻墙，有指定账号就可以通过这个产品进行内网访问</p>
-<h3 id="浏览器"><a href="#浏览器" class="headerlink" title="浏览器"></a>浏览器</h3><p>浏览器是指可以显示网页服务器或者文件系统的HTML文件（标准通用标记语言的一个应用）内容，并让用户与这些文件交互的一种软件</p>
-<p>html、css、js都是运行在这个软件中，浏览器是一个工厂，html、css、js是工人和原料</p>
-<p>IE6  –&gt; IE7(很快淘汰) –&gt; IE8(时间较长，稳定性好) –&gt; IE9(半年-一年) –&gt; IE10 –&gt; IE11 –&gt; IE(Edge)</p>
-<p>最好用的浏览器 –&gt; 谷歌</p>
-<h3 id="网页的基本组成"><a href="#网页的基本组成" class="headerlink" title="网页的基本组成"></a>网页的基本组成</h3><p>HTML：是网页的骨架，支撑起血肉（文字、图片、音视频…）<br>CSS：表皮和衣服、化妆品<br>javascript：动态和交互</p>
-<h3 id="HTML-（超文本标记语言）"><a href="#HTML-（超文本标记语言）" class="headerlink" title="HTML （超文本标记语言）"></a>HTML （超文本标记语言）</h3><p>网页文件本身是一种文本文件（除了文字再无其他），只有通过特定的标记描述，哪些普通文本才能在浏览器中正常的显示，在页面中如果遇到图片，音视频的时候如何用文本描述，需要用超文本进行引入才可以正常显示</p>
-<p><img src="./1489996758784.png" alt="Alt text"></p>
-<h4 id="html文件的特点"><a href="#html文件的特点" class="headerlink" title="html文件的特点"></a>html文件的特点</h4><p>浏览器根据标记来解析和描述内容（从html的第一行开始向下解析），如果遇到错误，浏览器不会指出，也不会报错，会跳过此处继续加载，编辑人员需要根据显示效果去分析哪里出错误了 – html不会报错</p>
-<h4 id="html的兼容问题"><a href="#html的兼容问题" class="headerlink" title="html的兼容问题"></a>html的兼容问题</h4><p>因为浏览器是由不同厂商生产的，所以对html的解析有分歧，产生了页面效果显示不一致的情况，我们将这个问题，叫做兼容问题。</p>
-<h3 id="超文本-（标签）"><a href="#超文本-（标签）" class="headerlink" title="超文本 （标签）"></a>超文本 （标签）</h3><h4 id="标签语法"><a href="#标签语法" class="headerlink" title="标签语法"></a>标签语法</h4><p>由成对的尖括号和关键字(标签名 tagName)组成，叫做标签 <code>&lt;tagName&gt;</code></p>
-<p>关键字（标签名）：是已经规范过的，不是自己随便制造的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">例如：</div><div class="line"></div><div class="line">&lt;div&gt;</div><div class="line">&lt;/h2&gt;</div><div class="line">&lt;img /&gt;</div></pre></td></tr></table></figure></p>
-<h4 id="标签属性"><a href="#标签属性" class="headerlink" title="标签属性"></a>标签属性</h4><p>属性提供了有关 HTML 元素的更多的信息<br>语法：由属性名和属性值组成（键值对 key=’value’）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;span style=&quot;font-family: 宋体;&quot; title=&quot;标题&quot;&gt;</div><div class="line">span 是标签名</div><div class="line">style 是标签属性名</div><div class="line">&quot;font-family: 宋体;&quot; 标签属性值</div></pre></td></tr></table></figure></p>
-<p>一个标签可以有很多标签属性，每一个属性之间用空格隔开</p>
-<h4 id="标签的分类"><a href="#标签的分类" class="headerlink" title="标签的分类"></a>标签的分类</h4><ul>
-<li>开始标签   <code>&lt;div&gt;</code></li>
-<li>结束标签   <code>&lt;/div&gt;</code></li>
-<li>自闭合标签（空标签） <code>&lt;br /&gt;</code></li>
-</ul>
-<h3 id="HTML的元素"><a href="#HTML的元素" class="headerlink" title="HTML的元素"></a>HTML的元素</h3><p>可以将元素理解成一个容器，容器中放置的就是我们网页中的主要内容</p>
-<blockquote>
-<p>内容可以为空</p>
-</blockquote>
-<p>由标签和内容组成的，叫做元素<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt;此处是内容&lt;/div&gt;</div></pre></td></tr></table></figure></p>
-<h4 id="元素分类"><a href="#元素分类" class="headerlink" title="元素分类"></a>元素分类</h4><ul>
-<li>由开始标签和结束标签组成的元素，可以进行嵌套（一个元素包着另一个元素），元素中可以添加内容</li>
-<li>只有一个空标签，只能进行功能的添加，例如 img 元素，用来引入图片，br 用来进行换行</li>
-</ul>
-<blockquote>
-<p>标签和元素是用来标记和描述内容的，所以这些标签和元素用户是看不到的，用户只能看到这个元素中的内容</p>
-</blockquote>
-<h3 id="常用的html元素有哪些"><a href="#常用的html元素有哪些" class="headerlink" title="常用的html元素有哪些"></a>常用的html元素有哪些</h3><table>
-<thead>
-<tr>
-<th style="text-align:left">标签名</th>
-<th style="text-align:left">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">div</td>
-<td style="text-align:left">无意义标签 用来区分网页大模块，例如网页头部，主体内容，尾部</td>
-</tr>
-<tr>
-<td style="text-align:left">span</td>
-<td style="text-align:left">无意义标签 用来描述行内某个小模块</td>
-</tr>
-<tr>
-<td style="text-align:left">p</td>
-<td style="text-align:left">段落</td>
-</tr>
-<tr>
-<td style="text-align:left">ul</td>
-<td style="text-align:left">无序列表</td>
-</tr>
-<tr>
-<td style="text-align:left">ol</td>
-<td style="text-align:left">有序列表</td>
-</tr>
-<tr>
-<td style="text-align:left">b</td>
-<td style="text-align:left">加粗</td>
-</tr>
-<tr>
-<td style="text-align:left">strong</td>
-<td style="text-align:left">加粗 浏览器解析的时候 有强调作用</td>
-</tr>
-<tr>
-<td style="text-align:left">body</td>
-<td style="text-align:left">身体 网页主体部分 （内容在浏览器的可视区显示）</td>
-</tr>
-<tr>
-<td style="text-align:left">a</td>
-<td style="text-align:left">超链接 锚点</td>
-</tr>
-<tr>
-<td style="text-align:left">img</td>
-<td style="text-align:left">引入图片</td>
-</tr>
-<tr>
-<td style="text-align:left">h1-h6</td>
-<td style="text-align:left">标题元素由大到小</td>
-</tr>
-<tr>
-<td style="text-align:left">hr</td>
-<td style="text-align:left">水平分割线</td>
-</tr>
-<tr>
-<td style="text-align:left">menu</td>
-<td style="text-align:left">菜单列表</td>
-</tr>
-<tr>
-<td style="text-align:left">li</td>
-<td style="text-align:left">列表项</td>
-</tr>
-<tr>
-<td style="text-align:left">dl</td>
-<td style="text-align:left">定义列表</td>
-</tr>
-<tr>
-<td style="text-align:left">dt</td>
-<td style="text-align:left">定义术语</td>
-</tr>
-<tr>
-<td style="text-align:left">dd</td>
-<td style="text-align:left">第一描述</td>
-</tr>
-<tr>
-<td style="text-align:left">table</td>
-<td style="text-align:left">表格</td>
-</tr>
-<tr>
-<td style="text-align:left">p</td>
-<td style="text-align:left">段落</td>
-</tr>
-<tr>
-<td style="text-align:left">from</td>
-<td style="text-align:left">交互表单</td>
-</tr>
-<tr>
-<td style="text-align:left">a</td>
-<td style="text-align:left">锚点</td>
-</tr>
-<tr>
-<td style="text-align:left">b</td>
-<td style="text-align:left">加粗</td>
-</tr>
-<tr>
-<td style="text-align:left">i</td>
-<td style="text-align:left">斜体</td>
-</tr>
-<tr>
-<td style="text-align:left">em</td>
-<td style="text-align:left">斜体强调</td>
-</tr>
-<tr>
-<td style="text-align:left">s</td>
-<td style="text-align:left">中划线（不推荐使用）</td>
-</tr>
-<tr>
-<td style="text-align:left">strike</td>
-<td style="text-align:left">中划线</td>
-</tr>
-<tr>
-<td style="text-align:left">del</td>
-<td style="text-align:left">文档中已被删除的文本</td>
-</tr>
-<tr>
-<td style="text-align:left">br</td>
-<td style="text-align:left">强制换行</td>
-</tr>
-<tr>
-<td style="text-align:left">u</td>
-<td style="text-align:left">下划线</td>
-</tr>
-<tr>
-<td style="text-align:left">textarea</td>
-<td style="text-align:left">多行文本输入框</td>
-</tr>
-<tr>
-<td style="text-align:left">input</td>
-<td style="text-align:left">输入框</td>
-</tr>
-<tr>
-<td style="text-align:left">select</td>
-<td style="text-align:left">下拉列表</td>
-</tr>
-<tr>
-<td style="text-align:left">label</td>
-<td style="text-align:left">input 元素定义标注（标记）</td>
-</tr>
-<tr>
-<td style="text-align:left">img</td>
-<td style="text-align:left">引入图片</td>
-</tr>
-<tr>
-<td style="text-align:left">sup</td>
-<td style="text-align:left">上标</td>
-</tr>
-<tr>
-<td style="text-align:left">big</td>
-<td style="text-align:left">大字体文本</td>
-</tr>
-<tr>
-<td style="text-align:left">small</td>
-<td style="text-align:left">小字体文本</td>
-</tr>
-</tbody>
-</table>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/04/25/第一天笔记/" data-id="cj1xfzk3g00076kvco6kt6xs7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/04/25/第十五天/" data-id="cj1xfzk3l00086kvcdcfi4pdr" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -1436,7 +1226,7 @@ div{height:100px;}
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li></ul>
     </div>
   </div>
 
@@ -1444,28 +1234,28 @@ div{height:100px;}
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Articles récents</h3>
     <div class="widget">
       <ul>
         
           <li>
+            <a href="/2017/05/02/js笔记/正式课第一天/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/02/js笔记/js正式课第三天(周六)/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/02/js笔记/js正式课第二周第一天/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/02/js笔记/js正式课第二天/">(no title)</a>
+          </li>
+        
+          <li>
             <a href="/2017/04/26/服务器使用方法/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2017/04/26/第六天笔记/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2017/04/26/第七天笔记/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2017/04/26/css选择器2/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2017/04/25/第四天笔记/">(no title)</a>
           </li>
         
       </ul>
@@ -1481,7 +1271,7 @@ div{height:100px;}
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2017 John Doe<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>

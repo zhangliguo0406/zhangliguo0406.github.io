@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="#js正式课第二天 [TOC] #####面向对象  面向对象开发也是面向类的开发；【内置类】： 每一种数据类型都有自己所属的类：Number,String,Boolean,Null Undefined ,Object,  Array,Date,RegExp,Function(注意：Math不是类)； 每一个元素也有自己的类 【注意】：Object是所有类的基类，js中万物接对象，而且所有的类都是">
+<meta name="keywords">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2017/05/02/js笔记/js正式课第二天/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="#js正式课第二天 [TOC] #####面向对象  面向对象开发也是面向类的开发；【内置类】： 每一种数据类型都有自己所属的类：Number,String,Boolean,Null Undefined ,Object,  Array,Date,RegExp,Function(注意：Math不是类)； 每一个元素也有自己的类 【注意】：Object是所有类的基类，js中万物接对象，而且所有的类都是">
+<meta property="og:updated_time" content="2017-05-01T07:12:27.158Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="#js正式课第二天 [TOC] #####面向对象  面向对象开发也是面向类的开发；【内置类】： 每一种数据类型都有自己所属的类：Number,String,Boolean,Null Undefined ,Object,  Array,Date,RegExp,Function(注意：Math不是类)； 每一个元素也有自己的类 【注意】：Object是所有类的基类，js中万物接对象，而且所有的类都是">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-js笔记/js正式课第二天" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/05/02/js笔记/js正式课第二天/" class="article-date">
+  <time datetime="2017-05-02T09:52:12.024Z" itemprop="datePublished">2017-05-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#js正式课第二天<br> [TOC]</p>
+<p>#####面向对象</p>
+<blockquote>
+<p>面向对象开发也是面向类的开发；<br>【内置类】：<br> 每一种数据类型都有自己所属的类：Number,String,Boolean,Null Undefined ,Object,  Array,Date,RegExp,Function(注意：Math不是类)；<br> 每一个元素也有自己的类<br> 【注意】：Object是所有类的基类，js中万物接对象，而且所有的类都是函数；<br> 【自定义类】：函数</p>
+<p>####在js中我们大体分为两种一种是【内置类】，一种是【自定义类】；</p>
+<p>#####【内置类】<br>每一个数据类型都是一个类，Number，String，Boolean，Null，Array，Object，Date，等等。（注意：Math不是一个类）。<br>元素都有自己的内置类；</p>
+<p>#####命名空间<br>在之前obj1，obj2就是一个简单的对象名，在这里我们叫命名空间；</p>
+<p>#####模块化开发</p>
+<p>######单例模式：（就是一个对象保障变量名不冲突）<br>将一个完整的项目分模块，多个人共同开发，每个人分模块写在一个对象里面，就是单例模式；<br>注意：单例模式就是一个对象，单例模式函数之间可以用this互相调用，this就是那个单例模式的对象</p>
+<p>######工厂模式：<br>把实现相同功能的方法封装成一个函数，以后再想实现这个功能就不用重写代码了，直接执行函数，通过参数来得到具体的实例；（好处：低耦合高内聚，就是减少页面代码的冗余，提高代码利用率）这种方法不常用；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&gt; var girlFriend0=&#123;name:&quot;刘嘉玲&quot;,age:46&#125;;</div><div class="line">    var girlFriend1=&#123;name:&quot;刘亦菲&quot;,age:36&#125;;</div><div class="line">    var girlFriend2=&#123;name:&quot;刘诗诗&quot;,age:26&#125;;</div><div class="line">    function getObj(name,age) &#123;</div><div class="line">        var obj=&#123;&#125;;</div><div class="line">        obj.name=name;</div><div class="line">        obj.age=age;</div><div class="line">        return obj</div><div class="line">    &#125;</div><div class="line">    console.log(getObj(&quot;秀秀&quot;, 20));</div><div class="line">    console.log(getObj(&quot;赵四&quot;, 40));</div><div class="line">    console.log(getObj(&quot;赵启慧&quot;, 19));</div><div class="line">&gt;</div></pre></td></tr></table></figure></p>
+</blockquote>
+<p>#####函数只有重写没有重载，函数名相同后面的覆盖前面的函数</p>
+<blockquote>
+<p>重载是根据参数不同去选择性的执行某个函数；</p>
+<p>#####构造函数模式：<br>构造一个类，因为类是函数数据类型的，所以我通过写一个函数来表示一个【自定义类】<br>怎么让他表示一个类？<br>1.最好首字母大写；</p>
+<ol>
+<li>通过new这个关键词来创造一个变量，这个变量叫做实例-&gt;var 实例=new 类；<br>3.通过this 给他的实例增加属性名和属性值；<br>#####new一个类的具体实例的运行步骤<br>1.预解释<br>2.自动生成一个this（代表当前实例），通过this给实例增加属性名，属性值<br>3.默认将创建好的实例this返回，不需要return；（如果写了return：1，return了基本数据类型不受影响。2，return了引用数据类型return啥返回啥；</li>
+</ol>
+</blockquote>
+<p>#####函数（三重身份）（new构造函数创建方式函数名尽量用大写和普通函数区分）（this）</p>
+<blockquote>
+<p> 1.普通的函数，就代表一个方法</p>
+<ol>
+<li>它也是一个 类 自定义类</li>
+<li>它也是Function类的一个实例</li>
+</ol>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div></pre></td><td class="code"><pre><div class="line">var obj1=new Fn（）；</div><div class="line">new就是构造函数的创建方式，Fn函数就是一个类，obj1就是Fn类的一个实例</div><div class="line">Fn（）创建过程：</div><div class="line">1.形成一个私有作用域</div><div class="line">2.预解释</div><div class="line">3.自动创建一个实例this</div><div class="line">4.代码执行的时候通过this给实例增加私有属性，并赋值；</div><div class="line">5.会默认返回当前的这个实例this</div><div class="line">注意：1.通过this给实例增加的是私有属性，每个实例之间的私有属性是私有的不一样的；</div><div class="line">     2.不用写return直接返回this，如果你写了，写的是基本数据类型的没有影响，如果你写的是引用数据类型的就会把this修改了，写的啥返回啥；</div><div class="line">     3.var obj=new Fn();等于var obj=new Fn;Fn后面加不加括号第一样；</div><div class="line"></div><div class="line"></div><div class="line">        function fn() &#123;</div><div class="line">       var obj=&#123;&#125;;</div><div class="line">       obj.name=&quot;aa&quot;;</div><div class="line">       obj.age=12;</div><div class="line">       return obj</div><div class="line">    &#125;</div><div class="line">    var obj=fn();</div><div class="line">    function Fn() &#123;</div><div class="line">        //this-&gt;obj</div><div class="line">        this.name=&quot;aa&quot;;</div><div class="line">        this.age=12;</div><div class="line">        this.f=function () &#123;</div><div class="line">            console.log(&quot;11&quot;)</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">    var obj1=new Fn();</div><div class="line">    //obj1是Fn这个类的一个具体的实例</div><div class="line">    var obj2=new Fn();</div><div class="line">    //obj2是Fn这个类的一个具体的实例</div><div class="line">    console.log(obj1.f===obj2.f);</div><div class="line"></div><div class="line">    console.log(obj1);</div><div class="line"></div><div class="line">    function FF() &#123;</div><div class="line">        //this-&gt;obj</div><div class="line">        this.name=&quot;aa&quot;;</div><div class="line">        this.age=12;</div><div class="line">        this.f=function () &#123;</div><div class="line">            console.log(&quot;11&quot;)</div><div class="line">        &#125;</div><div class="line">        return this</div><div class="line">    &#125;</div><div class="line">    var obj0=new  FF();</div><div class="line">    console.log(obj0);</div><div class="line"></div><div class="line">    var num=1;</div><div class="line">    function XX() &#123;</div><div class="line">        var num=12;</div><div class="line">        this.num=10;</div><div class="line">        this.x=100;</div><div class="line">        this.y=function () &#123;</div><div class="line">            console.log(this.x+num)</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    var x1=new XX();</div><div class="line">    console.log(x1.x,x1.num);</div><div class="line">    //x1.x=100,x1.num=10</div><div class="line">    x1.y();</div><div class="line">    var x2=new XX();</div><div class="line">    //x2=&#123;num:10,x:100,y:function()&#123;&#125;&#125;</div><div class="line">    console.log(x1.x===x2.x);</div><div class="line">    console.log(x1.y===x2.y);//false</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;!--</div><div class="line">var x1=new XX();</div><div class="line">创建了XX类的一个实例x1,</div><div class="line">先让XX执行，形成一个私有作用域，预解释：var 私有变量num</div><div class="line">私有作用域中代码执行：num=12；</div><div class="line">通过this给实例增加了三个私有属性，并且赋值，然后将创建的好的this实例返回出来给了x1,现在x1=&#123;num:10,x:100,y:function()&#123;&#125;&#125;</div><div class="line">x1.y()-&gt;function () &#123;</div><div class="line">console.log(this.x+num)&#125;</div><div class="line">这里面的this值得是x1,x1.x+12=112</div><div class="line">--&gt;</div></pre></td></tr></table></figure>
+<p>#####所有的类都是函数数据类型，Object是一个类，说明Object是函数数据类型的。他就是函数数据类型的一个实例；</p>
+<p>#####原型模式</p>
+<blockquote>
+<p>实例通过this得到的是私有的属性和方法，还可以继承所属类的共有属性和方法，比如说，每个数组都有sort这个方法，这个方法是在类Array原型上，因为所有数组都是Array类的一个具体实例，所以只要是数组就可以用；<br>1.每一个函数数据类型（函数，所有的类）天生都有一个prototype（原型）属性；prototype里面存储的是共有的属性和方法，这个属性是一个对象数据类型的，浏览器会给他开辟一个堆内存，开辟的堆内存里边又有一个天生自带的属性construction（构造函数），而且指向的是类本身；<br>2.所有的对象数据类型都有一个（数据类型中除了函数和基本数据类型的其他都是,注意：实例和prototype是对象数据类型）天生自带–proto–，指向所属类的原型（prototype）；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function FF()&#123;</div><div class="line">   //this </div><div class="line">   this.a=12</div><div class="line">   this.ff=function&#123;</div><div class="line">   cosole.log thsi.(a)</div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+</blockquote>
+<p>#####链试写法的实现的原理   return this</p>
+<p>#####原型的链：</p>
+<blockquote>
+<p>实例.属性名，遇到属性名先看是不是自己的私有属性，如果是的话就用私有的，不是的话，通过实例的_ <em>proto</em> <em>找到所属类的原型（prototype），还没有的话，通过所属类的prototype的</em> <em>proto</em> _继续找，一直找到基类Objcet的prototype,在没有就是undefined；</p>
+<p>#####object 是js中所有对象数据类型的基类（最顶层的类）；<br>1.在Object.prototype上没有<strong>proto</strong>这个属性，是一个唯一没有这个属性的</p>
+<p>#####原型链模式<br>f1.hasOwnProperty(“x”);//true可以输出说明hasOwnProperty是f1的一个属性；但是我们发现f的私有属性上并没有这个方法，那如何处理的呢？<br>通过 对象名.属性名 的方式获取属性值得时候，首先在对象私有的属性上进行查找，如果私有中存字这个属性，择获取的是私有属性；<br>如果私有的没有，择通过——proto——找到所属类的原型（类的原型上定义的属性和方法都是当前实例公有的属性和方法），原型上存在的话获取的是公有的属性值，如果原型上也没有的话则通过<em>proto</em>继续向上查找，一直找到基类（Object）的原型（prototype）上为止；<br>这种查找的机制就是我们的原型链模式；</p>
+<p>#####链试写法<br>执行完数组的一个方法可以紧接着执行下一个方法；</p>
+<p>#####原型扩展之批量设置公有属性<br>如何批量设置公有属性：<br>1.别名法如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"> var  sts=Fn.prototype：</div><div class="line"> Fn.prototype.sum=function()&#123;&#125;</div><div class="line"> 同等于</div><div class="line"> sts.sum=function()&#123;&#125;</div><div class="line"> sts.a=fucntion()&#123;&#125;</div><div class="line"> sts..........</div><div class="line"> 这样只是少写代码</div><div class="line">&gt;</div></pre></td></tr></table></figure></p>
+<p>2.重构原型对象的方法<br>自己手动添加一个堆内存（公有的），但是只有浏览器天生给Fn.prototype开辟的堆内存里面才有constructor，而我们自己开辟的这个堆内存内没有这个属性，这样constructor指向就不是Fn了而是Object了；<br>为了和原来的保持一致，我们需要手动增加constructor的指向（constructor：Fn）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&gt; function Fn()&#123;</div><div class="line">&gt; this.a=2</div><div class="line">&gt; &#125;</div><div class="line">&gt; 设置Fn的公有属性给他添加一个堆内存</div><div class="line">&gt; Fn.prototype= &#123;</div><div class="line">&gt; constructor：Fn//这样就指向Fn了</div><div class="line">&gt;   a：function ()&#123;&#125;</div><div class="line">&gt;   b:function()&#123;&#125;</div><div class="line">&gt;   c:function()&#123;&#125;</div><div class="line">&gt;   引用数据类型都会开辟一个新内存</div><div class="line">&gt; &#125;</div><div class="line">&gt;</div></pre></td></tr></table></figure></p>
+<p>3.用这种方法给内置类增加公有的属性比如给Array增加去重的方法，Array内置有很多方法比如sort，splice等等就被新开辟的堆内存覆盖掉，所以我们用这种方法会背浏览器屏蔽掉；<br>但是我们可以一个个的修改内置方法，当我们通过下述方法在数组的原型上增加方法，如果方法名和原来的内置重复了，会把人家的修改掉–&gt;我们以后再内置类的原型上增加方法，命名都要加特殊前缀；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Array.prototype.sort=function()&#123;</div><div class="line">方法</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+</blockquote>
+<p>#####Object.create(obj1)</p>
+<blockquote>
+<p>Object.create（ProObj）创建一个新的对象，但是还要把proObj作为这个对象的原型</p>
+<p>#####数据类型检测；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">constructor</div><div class="line">console.log(ary.constructor.name)</div><div class="line">console.log(ary.constructor)</div></pre></td></tr></table></figure></p>
+<p>instanceof :检测这个实例是否属于某个类，能详细检测引用数据类型<br>对于基本数据类型，用字面量创建方式检测不出来，用构造函数创建的可以检测，因为每一种数据类型都对应自己所属的类，比如一个数字是Number类的实例，所以instanceof可以用来检测数据类型；<br>注意</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/05/02/js笔记/js正式课第二天/" data-id="cj27dljb00003lkvcjww1yxc5" class="article-share-link">Partager</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/04/26/服务器使用方法/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Récent</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/05/02/js笔记/js正式课第二周第一天/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Ancien</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Articles récents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/05/02/js笔记/正式课第一天/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/02/js笔记/js正式课第三天(周六)/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/02/js笔记/js正式课第二周第一天/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/02/js笔记/js正式课第二天/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/26/服务器使用方法/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="##js正式课第二周第一天[TOC] #####for in循环  for in循环在遍历的时候默认的话把自己私有的和在他所有类原型是扩展的属性和方法都可以遍历到，但是一般情况下我们只需要遍历私有的即可，我们可使用一下方法的判断处理：123456for (var key in obj)&amp;#123;   if(obj.propertyEnumerable(key))&amp;#123;console.log">
+<meta name="keywords">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2017/05/02/js笔记/js正式课第二周第一天/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="##js正式课第二周第一天[TOC] #####for in循环  for in循环在遍历的时候默认的话把自己私有的和在他所有类原型是扩展的属性和方法都可以遍历到，但是一般情况下我们只需要遍历私有的即可，我们可使用一下方法的判断处理：123456for (var key in obj)&amp;#123;   if(obj.propertyEnumerable(key))&amp;#123;console.log">
+<meta property="og:updated_time" content="2017-05-02T09:49:24.466Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="##js正式课第二周第一天[TOC] #####for in循环  for in循环在遍历的时候默认的话把自己私有的和在他所有类原型是扩展的属性和方法都可以遍历到，但是一般情况下我们只需要遍历私有的即可，我们可使用一下方法的判断处理：123456for (var key in obj)&amp;#123;   if(obj.propertyEnumerable(key))&amp;#123;console.log">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-js笔记/js正式课第二周第一天" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/05/02/js笔记/js正式课第二周第一天/" class="article-date">
+  <time datetime="2017-05-02T09:52:12.048Z" itemprop="datePublished">2017-05-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##js正式课第二周第一天<br>[TOC]</p>
+<p>#####for in循环</p>
+<blockquote>
+<p>for in循环在遍历的时候默认的话把自己私有的和在他所有类原型是扩展的属性和方法都可以遍历到，但是一般情况下我们只需要遍历私有的即可，我们可使用一下方法的判断处理：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">for (var key in obj)&#123;</div><div class="line">   if(obj.propertyEnumerable(key))&#123;console.log(key)&#125;</div><div class="line"> 或者</div><div class="line"> if(obj.hasOwnProperty(key))&#123;</div><div class="line"> console.log(key)&#125;//常用</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>所以以后用for in的时候要写用于值遍历私有的可枚举的；</p>
+<p>#####Object.create(proObj) 创建一个新的对象，但还要把proObj作为这个对象的原型；（IE6-8不兼容）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var obj=&#123;s:2&#125;</div><div class="line">var obj2=Object.create(obj)</div><div class="line">//等于把obj作为了obj2的原型；</div></pre></td></tr></table></figure></p>
+</blockquote>
+<p>#####call方法（低版本IE不支持）：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">console.log(Function.prototype.call.length)</div><div class="line">函数原型上的call方法是一个函数，这个方法至少要传一个参数，这个参数是用来改变call前面的方法的this的；</div></pre></td></tr></table></figure></p>
+<blockquote>
+<ol>
+<li>call的两个作用：1，改变this；2，让当前函数执行；<br>非严格模式；<br>fn.call(obj):1,将fn中的this变成obj。2.让fn执行；<br>在非严格模式下，不传参数或者传了null，undefined，默认this就window;<br>call方法从第二个参数开始就是给前面的函数传的参数；fn.call(obj,1,2);<br>2.当使用函数.call.call(),两个及连个以上的call，最后一个call的第一个参数是用来改变前面call方法的this的，那么this（）就变成了第一个参数执行，所以第一个参数必须是函数否则会报错；<br>call:记住三句话1.改变前面方法的this，不管前面有多少东西；2. 让前面方法执行，不管前面有多长；  3. call方法最终执行的核心是this（）；<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">function fn()&#123;console.log(this)&#125;;</div><div class="line">fn();</div><div class="line">fn.call.call(obj)//报错obj is not a function;</div><div class="line">所两call及以上要传函数；</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>“use strict”严格模式：<br>1.执行函数的时候，前面没有点，this就是undefined；<br>2.不传参数或者传了undefined或null，this就等于null或undefined；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">&quot;use strict&quot;//严格模式</div><div class="line">function fn()&#123;console.log(this)&#125;;</div><div class="line">fn();</div><div class="line">fn.call()//this=undefined;</div><div class="line">fn.call(undefined)//this=undefined;</div><div class="line">fn.call(null)//this=null</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
+</blockquote>
+<p>#####length:</p>
+<blockquote>
+<p>所有的函数都有一个属性叫length，表示的是参数的数量（长度）；</p>
+<p>#####try{}catch(e) 浏览器隐藏自己的错误;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">try&#123;</div><div class="line">//先执行try里面的代码，如果报错了就执行catch里面的代码；</div><div class="line">&#125;catch(e)&#123;</div><div class="line">//e是一个对象，里面存着错误信息，存在e.message,这里面存着try里面的错误信息</div><div class="line">     //throw new Error（&quot;我错了&quot;）</div><div class="line">  &#125;</div><div class="line"> //call将类数组转为数组；</div><div class="line">    function toArray(likeArray) &#123;</div><div class="line">        //call在低版本IE下不支持</div><div class="line">        var ary = [];</div><div class="line">        try &#123;</div><div class="line">            //return ary.__proto__.slice.call(likeArray)</div><div class="line">            return Array.prototype.slice.call(likeArray, 0);</div><div class="line">        &#125;</div><div class="line">        catch (e) &#123;</div><div class="line">            console.log(e.message);</div><div class="line">            for (var i = 0; i &lt; likeArray.length; i++) &#123;</div><div class="line">                ary.push(likeArray[i])</div><div class="line">            &#125;</div><div class="line">            return ary</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    function fn() &#123;return toArray(arguments)&#125;</div><div class="line">    console.log(fn(1, 2, 3, 5, 6, 7, 10));</div></pre></td></tr></table></figure></p>
+</blockquote>
+<p>#####apply;(Function.prototype.apply)</p>
+<blockquote>
+<p>apply 跟call意思和用法一样，区别是：apply的一个参数也是改变this用的，第二个参数是一个数组，这个数组是给前面的方法传参数的，将数组里面的每一项一个一个传给函数；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">// 非严格模式</div><div class="line"> function fn(x,y) &#123;</div><div class="line">        this.x=x+y;</div><div class="line">        this.y=x-y;</div><div class="line">        console.log(this.x,this.y,x,y)</div><div class="line">    &#125;</div><div class="line">    fn(1,2);//this-&gt;window</div><div class="line">    fn.call(null,1,2);//this-&gt;null</div><div class="line">    var ary=[1,2];</div><div class="line">    fn.apply(undefined,ary)；//this-&gt;undefined</div></pre></td></tr></table></figure></p>
+</blockquote>
+<p>#####bind(低版本IE不兼容)</p>
+<blockquote>
+<p>bind只改变函数中的this，返回一个新的函数，原来的函数不变，不让函数执行bind以后再事件中常用我们会写一个兼容模式；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var a=2</div><div class="line">function fn()&#123;</div><div class="line">  console.log(this.a)</div><div class="line">&#125;</div><div class="line">var obj=&#123;a:1&#125;</div><div class="line">fn()//this是window；输出2</div><div class="line">fn.bind(obj)//没有()不执行执行的话要手动执行;如果执行输出1；</div><div class="line">//bind 执行过程=克隆了一个新函数,和var fn1=fn.bind(obj)一样函数里面的this变成obj；</div><div class="line">//如果要执行也可以写成fn1();</div></pre></td></tr></table></figure></p>
+</blockquote>
+<p>#####数据类型检测</p>
+<p>######typeOf</p>
+<blockquote>
+<p>能够详细检测基本数据类型，返回值是一个字符串，如果两及两个以上的typeOf检测的话返回值是“string”，但是null检测出来是object，对于引用数据类型不能详细检测只有object和function；</p>
+<p>######instanceOf<br>检测一个实例是否属于某个类，因为每一种数据类型都对应自己所属的类，所以我们可以通过他来检测数据类型，但是有局限性，对于基本数据类型 用字面量创建方式创建出来的变量检测不出来，构造函数方式可以，引用数据类型可以详细检测；</p>
+<p>######类原型上的constructor；<br>每个类原型（prototype）上都有一个constructor属性，他指向类本省，那么一个具体的数据类型的实例.constructor; 比如:’11’.constructor-&gt;’11’.<strong>proto</strong> -&gt;string.prototype,string原型上有constructor指向string本身，你也可以通过他的neme来得到string类名，也就是他的数据类型</p>
+<p>#####对象的Object类的原型上有一个toString方法:<br>他可以检测数据类型，那么我们就调用Object.prototype.toString()这个方法，用call方法将里面的this改变成我们想检测的那个数据，会得到[object   数据类型]；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">//toString</div><div class="line"> console.dir(Object.prototype);</div><div class="line"> console.log((&#123;1: 1&#125;).toString());</div><div class="line"> var str=&quot;11&quot;;</div><div class="line"> var number=1;</div><div class="line"> var ary=[1];</div><div class="line"> var time=new Date();</div><div class="line"> console.log(Object.prototype.toString.call(str));</div><div class="line"> console.log(Object.prototype.toString.call(number));</div><div class="line"> console.log(Object.prototype.toString.call(ary));</div><div class="line"> console.log(Object.prototype.toString.call(time));</div><div class="line"> var s=Object.prototype.toString.call(time);</div><div class="line"> console.log(typeof s);</div><div class="line"> //&apos;[object Date]&apos;</div><div class="line"> //console.log(s.split(&quot; &quot;)[1].replace(&quot;]&quot;,&quot;&quot;));</div><div class="line"> console.log(s.substring(8, s.length - 1),s);</div></pre></td></tr></table></figure></p>
+</blockquote>
+<p>####JSON（是一个格式）；</p>
+<blockquote>
+<p>1.JSON是个对象，是window下的一个属性，也可以理解为是一个全局变量，在低版本的IE下没有；<br>JNOS和普通对象的区别：<br>1.对象的属性名用双引号包起来；<br>2.属性值如果是字符串的话也得用双引号包起来；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"> var jsonObj=&#123;&quot;a&quot;:&quot;a&quot;,&quot;1&quot;:1,&quot;age&quot;=12&#125;</div><div class="line"> //json字符串，一般从后台获取回来的数据都是json字符串；</div><div class="line"> var jsonStr=&apos;&#123;&quot;a&quot;:&quot;a&quot;,&quot;1&quot;:1,&quot;age&quot;=12&#125;&apos;;</div><div class="line"> //JSON.parse()将JSON格式的字符串转为JSON格式的对象；</div><div class="line"> JSON.parse(jsonStr);</div><div class="line">  //JSON.stringfy()将JSON格式的对象转为JSON格式的字符串；</div><div class="line"> JSON.stringfy(jsonStr);</div><div class="line"> </div><div class="line">//在IE没有JSON就用eval来实现；</div><div class="line">function jsonParse(jsonStr)&#123;</div><div class="line">  //如果有就用JSON.parse;</div><div class="line">  try&#123;return JSON.parse(jsonStr)&#125;</div><div class="line">  //如果没有就用eval；</div><div class="line">  catch(e)&#123;renturn eval(&quot;(&quot;+jsonSrr+&quot;)&quot;)&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">function jsonParse(jsonStr)&#123;</div><div class="line"> return &quot;JSON&quot; in window</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+</blockquote>
+<p>#####DOM映射；</p>
+<blockquote>
+<p>通过DOM获取的元素集合（类数组），仍然和页面的元素保持着联系，并且这个元素集合会随着页面元素的增加而增加，减少而减少；即使将这个结合（类数组）转为一个数组之后，每个元素仍然和页面有联系这就叫做DOM映射；</p>
+<p>#####回流<br>值元素的位置发生改变（比如增加元素，删除元素，移动）就会引起回流，让整个页面重新加载一遍，从而造成性能的浪费；</p>
+<p>#####重绘<br>元素的样式改变就会把当前的这个元素重新渲染一遍；所以在以后的项目中，能用重绘代替就不用回流，能用一次回流就不要使用多次；</p>
+</blockquote>
+<p>#####向页面增加元素的方式：</p>
+<blockquote>
+<p>1.动态创建的方式: document.createElement, 然后一个一个appendChild, 会造成多次回流，这样不好，但是他有个好处就是不会改变原来的元素（比如不会影响他之前绑定的事件）<br>2.通过拼接字符串，最后在一次性通过innerHTML ,这样只引起一次回流，比较好，但是他会改变原来的元素（比如会影响他之前绑定的事件）；<br>3.文档碎片，他就是一个容器专门来盛放DOM元素的；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var flg=document.createDocumentFragement();//文档碎片；</div><div class="line">    flg=null//用完后就清空；</div></pre></td></tr></table></figure></p>
+<p>文档碎片步骤<br>1.先创建元素,var oli=document.createElement(“li”);<br>2.按需求给元素增加一些需要的属性；<br>3暂时存放在flg（DOM碎片）中，也就是appendChild进去的；<br>4.循环完之后，把整个flg放到ul中，news.appendChild(flg):这样就只回流一次；（news是ul的id）；</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/05/02/js笔记/js正式课第二周第一天/" data-id="cj27dljax0001lkvcnm93u91u" class="article-share-link">Partager</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/05/02/js笔记/js正式课第二天/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Récent</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/05/02/js笔记/js正式课第三天(周六)/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Ancien</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Articles récents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/05/02/js笔记/正式课第一天/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/02/js笔记/js正式课第三天(周六)/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/02/js笔记/js正式课第二周第一天/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/02/js笔记/js正式课第二天/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/26/服务器使用方法/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

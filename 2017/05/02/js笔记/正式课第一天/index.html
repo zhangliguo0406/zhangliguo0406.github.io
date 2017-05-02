@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="##正式课第一天[TOC] ####闭包  1.函数执行的时候会形成一个私有作用域，来保护里面的私有变量不受外界干扰；   私有作用域是一种机制； ####函数执行的步骤  1.形成私有作用域 2.给形参赋值 3.预解释 4.函数体执行####作用域链#####在私有作用域下遇到变量先看是不是自己私有变量（两种var和function），是的话就是私有，不是的话就往上一级找，如果还没有继续找，直到">
+<meta name="keywords">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2017/05/02/js笔记/正式课第一天/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="##正式课第一天[TOC] ####闭包  1.函数执行的时候会形成一个私有作用域，来保护里面的私有变量不受外界干扰；   私有作用域是一种机制； ####函数执行的步骤  1.形成私有作用域 2.给形参赋值 3.预解释 4.函数体执行####作用域链#####在私有作用域下遇到变量先看是不是自己私有变量（两种var和function），是的话就是私有，不是的话就往上一级找，如果还没有继续找，直到">
+<meta property="og:updated_time" content="2017-04-29T01:34:21.950Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="##正式课第一天[TOC] ####闭包  1.函数执行的时候会形成一个私有作用域，来保护里面的私有变量不受外界干扰；   私有作用域是一种机制； ####函数执行的步骤  1.形成私有作用域 2.给形参赋值 3.预解释 4.函数体执行####作用域链#####在私有作用域下遇到变量先看是不是自己私有变量（两种var和function），是的话就是私有，不是的话就往上一级找，如果还没有继续找，直到">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-js笔记/正式课第一天" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/05/02/js笔记/正式课第一天/" class="article-date">
+  <time datetime="2017-05-02T09:52:12.094Z" itemprop="datePublished">2017-05-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##正式课第一天<br>[TOC]</p>
+<p>####闭包</p>
+<blockquote>
+<p>1.函数执行的时候会形成一个私有作用域，来保护里面的私有变量不受外界干扰；<br>   私有作用域是一种机制；</p>
+<p>####函数执行的步骤</p>
+<ul>
+<li>1.形成私有作用域</li>
+<li>2.给形参赋值</li>
+<li>3.预解释</li>
+<li>4.函数体执行<br>####作用域链<br>#####在私有作用域下遇到变量先看是不是自己私有变量（两种var和function），是的话就是私有，不是的话就往上一级找，如果还没有继续找，直到找到全局为止，还是没有就报错了，这种查找机制叫做作用域链，私有作用域下的私有变量外界访问不到，但是可以获取到外界的变量；<br>####查找上一级作用域<br>看当前这个函数对应的堆内存在哪个作用域下定义的，那么他的上一级就是这个作用域，跟在哪里执行没关系；<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var num=1;</div><div class="line">function fn()&#123;</div><div class="line">var num=10;</div><div class="line">function ff()&#123;</div><div class="line">console.log(sum)//sum=10，找ff所在的上一级；</div><div class="line">&#125;</div><div class="line">return ff</div><div class="line">&#125;</div><div class="line">var ff=fn();</div><div class="line">console.log(ff());//ff没有return 所以是输出undefined；</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<p>####内存的销毁机制</p>
+<p>#####堆内存：只要这个堆内存没有被任何变量或属性占用它，浏览器就会主动销毁；其他的要手动销毁，（在做项目时候遇到一个对象以后不用了，手动清空一下，obj=null）；</p>
+<p>#####栈内存（作用域）：</p>
+<blockquote>
+<p>全局作用域：关闭浏览器的时候就销毁了，做项目的时候尽量避免全局变量的使用；<br>私有作用域：相同的函数每一次执行都会形成一个私有作用域，作用域之间没有任何关系；那么他是怎么销毁的呢；</p>
+<ul>
+<li>1.立即销毁 函数没有返回值或者返回值得内容没有被占用，浏览器就会把它销毁了；</li>
+<li>2.暂时不销毁：函数返回了一个函数，这个返回的函数接着执行了，完了之后浏览器会抽时间销毁，（什么时候销毁每个浏览器的机制不一样）</li>
+<li>3.不销毁：函数执行返回一个地址，这个地址一直被占用着；<br>作用域不销毁这个概念主要是用在给元素绑定事件的时候<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function  fn1()&#123;</div><div class="line">    console.log(&quot;销毁&quot;)</div><div class="line">&#125;</div><div class="line">fn1();//这个函数执行完后对后面没什么影响就销毁了</div><div class="line">var box=document.getElementById(&quot;box&quot;)</div><div class="line">box.onclick=function ()&#123;</div><div class="line">&#125;;//此时不销毁</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<p>####this</p>
+<ul>
+<li>执行的主体，谁来执行的</li>
+<li>注意上下文；</li>
+<li>全局作用域下this就是window<br>#####私有作用域下的this<blockquote>
+<p>1.自执行函数中的this永远是window</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">(function ()&#123;</div><div class="line">   console.log(this)//此时this就是window</div><div class="line">&#125;)();</div></pre></td></tr></table></figure>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>2.给元素绑定事件的时候给谁绑定的，this就是谁；<br>3.函数执行的时候看前面有没有点，有点的话前面是谁this就是谁，没有点this就是window；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">name=&quot;天线宝宝&quot;</div><div class="line">function()&#123;</div><div class="line">  console.log(this.name)//thisz此时代表window；</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>4.函数作为参数的时候this是Windows，比如定时器，数组中sort排序中的函数，</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/05/02/js笔记/正式课第一天/" data-id="cj27dljaz0002lkvc80aslo2p" class="article-share-link">Partager</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/05/02/js笔记/js正式课第三天(周六)/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Récent</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Articles récents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/05/02/js笔记/正式课第一天/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/02/js笔记/js正式课第三天(周六)/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/02/js笔记/js正式课第二周第一天/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/02/js笔记/js正式课第二天/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/26/服务器使用方法/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
